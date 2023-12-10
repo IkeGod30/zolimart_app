@@ -1,0 +1,29 @@
+.offer_price {
+  width: 100px;
+  height: 20px;
+  color: red;
+  font-size: 30px;
+}
+
+.first {
+  color: green;
+}
+
+.offer-input {
+  display: flex;
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
+  margin-top: 14px;
+  /* border: solid grey; */
+
+}
+
+.offer-input_b {
+    display: flex;
+    justify-items: flex-end;
+}
+
+.btn1 {
+    margin-left: 10px;
+}

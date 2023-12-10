@@ -1,0 +1,10 @@
+/* .bargain-div {
+    border: solid gray 2px;
+    align-items: center;
+} */
+
+.asking {
+    display: flex;
+    justify-content: center;
+    align-items: space-evenly;
+}
