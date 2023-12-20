@@ -6,11 +6,8 @@ function ProductComp() {
   return (
     <div>
       <h3 className="first">Template</h3>
-      <ProdImg /> 
-      <BargainPrice />
-    
-      
-      
+      <ProdImg />
+      {/* <BargainPrice /> */}
     </div>
   );
 }
@@ -20,7 +17,7 @@ function OfferPrice(e) {
   let Offer = e.trarget.value;
   const LAST_PRICE = askingPrice * 0.15;
   // let Offered_price = e.target.value;
-  
+
   if (Offer > 30) {
     alert("Congratulations! Your Offer has been accepted");
   } else {
@@ -33,7 +30,6 @@ function ValidateEntry() {
   if (Offer != null) {
     alert("Please type in a valid amount in dollars");
   }
-
 }
 
 export default ProductComp;
