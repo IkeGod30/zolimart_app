@@ -5,10 +5,15 @@ import { useState } from "react";
 function ProdImg() {
   const [counterOff, setcounterOff] = useState(0);
   const [offersubmit, setoffersubmit] = useState(0);
+  const [UserOffer, setUserOffer] = useState(0);
 
-  function offerChange() {
-    setoffersubmit(submitOffer);
+  function changeUserOffer(e) {
+    setUserOffer(e.target.value);
   }
+
+  // function offerChange() {
+  //   setoffersubmit(submitOffer);
+  // }
 
   const asking = 45;
   let Offer = 42; // Use useState...
@@ -21,9 +26,9 @@ function ProdImg() {
   //   prompt("Please type in your offer");
   // }
 
-  function changeOffer() {
-    setcounterOff(asking * 0.4);
-  }
+  // function changeOffer() {
+  //   setcounterOff(asking * 0.4);
+  // }
 
   function OfferPrice(e) {
     // const Offer = 0;
@@ -66,15 +71,15 @@ function ProdImg() {
           <h5 className="card-title">Basket of assorted items</h5>
           <div>
             <p>Asking Price: ${asking} </p>
-            <p>Current Offer: $ {Offer}</p>
+            <p>Current Offer: $ {UserOffer}</p>
             {/* <p>Counter Offer: $ {counterOffer}</p> */}
           </div>
           <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-            <button onClick={OfferPrice} className="btn btn-primary">
+            <button onClick={changeUserOffer} className="btn btn-primary">
               Make Offer
             </button>
             <input
-              onKeyChange={submitOffer}
+              onKeyUp={changeUserOffer}
               type="text"
               placeholder="Type your amount"
               style={{ width: "100px", height: "35px" }}
