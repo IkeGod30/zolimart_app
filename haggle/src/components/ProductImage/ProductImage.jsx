@@ -11,7 +11,7 @@ function ProdImg() {
   }
 
   const asking = 45;
-  let Offer = 42; // Use State??
+  let Offer = 42; // Use useState...
   const OfferTen = asking * 0.1;
   const OfferFive = asking * 0.05;
   const OfferTwenty = asking * 0.2;
@@ -27,7 +27,6 @@ function ProdImg() {
 
   function OfferPrice(e) {
     // const Offer = 0;
-    // let Offer = e.trarget.value;
     // const LAST_PRICE = askingPrice * 0.15;
     // let Offered_price = e.target.value;
 
@@ -42,7 +41,7 @@ function ProdImg() {
   }
 
   function submitOffer(e) {
-    //  e.target.value;
+    //  e.target.value; // To be used in logic
   }
 
   return (
@@ -64,7 +63,7 @@ function ProdImg() {
         />
         {/* <img src="..." class="card-img-top" alt="..."> */}
         <div className="card-body">
-          <h5 className="card-title">Shopping Voucher</h5>
+          <h5 className="card-title">Basket of assorted items</h5>
           <div>
             <p>Asking Price: ${asking} </p>
             <p>Current Offer: $ {Offer}</p>
