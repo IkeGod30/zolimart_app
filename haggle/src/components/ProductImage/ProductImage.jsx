@@ -16,7 +16,7 @@ function ProdImg() {
   // }
 
   const asking = 45;
-  let Offer = 42; // Use useState...
+  let Offer = UserOffer;
   const OfferTen = asking * 0.1;
   const OfferFive = asking * 0.05;
   const OfferTwenty = asking * 0.2;
@@ -30,14 +30,14 @@ function ProdImg() {
   //   setcounterOff(asking * 0.4);
   // }
 
-  function OfferPrice(e) {
+  function OfferPrice() {
     // const Offer = 0;
     // const LAST_PRICE = askingPrice * 0.15;
     // let Offered_price = e.target.value;
 
     if (Offer >= asking - OfferTen) {
       // let counterOffer = asking * 0.5;
-      alert(asking - OfferTen);
+      // alert(asking - OfferTen);
       alert("Congratulations! Your Offer has been accepted");
       // counterOffer = asking * 0.6;
     } else {
@@ -75,7 +75,7 @@ function ProdImg() {
             {/* <p>Counter Offer: $ {counterOffer}</p> */}
           </div>
           <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-            <button onClick={changeUserOffer} className="btn btn-primary">
+            <button onClick={OfferPrice} className="btn btn-primary">
               Make Offer
             </button>
             <input
