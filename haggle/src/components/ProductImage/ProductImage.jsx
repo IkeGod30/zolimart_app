@@ -17,9 +17,13 @@ function ProdImg() {
 
   const asking = 45;
   let Offer = UserOffer;
-  const OfferTen = asking * 0.1;
-  const OfferFive = asking * 0.05;
-  const OfferTwenty = asking * 0.2;
+  const DiscountTen = asking * 0.1;
+  const DiscountFive = asking * 0.05;
+  const DiscountTwenty = asking * 0.2;
+
+  const OfferTen = asking - DiscountTen;
+  const OfferFive = asking - DiscountFive;
+  const OfferTwenty = asking - DiscountTwenty;
 
   let counterOffer = null;
   // function prom() {
@@ -35,15 +39,30 @@ function ProdImg() {
     // const LAST_PRICE = askingPrice * 0.15;
     // let Offered_price = e.target.value;
 
-    if (Offer >= asking - OfferTen) {
-      // let counterOffer = asking * 0.5;
-      // alert(asking - OfferTen);
+    // switch (Offer) {
+    //   case 40:
+    //     alert("Offer accepted!");
+    //   case 20:
+    //     alert("Offer NOT accepted");
+
+    // default:
+    //   return alert(asking);
+
+    if (Offer == 30) {
       alert("Congratulations! Your Offer has been accepted");
-      // counterOffer = asking * 0.6;
-    } else {
-      alert("Your offer is not accepted");
+    } else if (Offer == 35) {
+      alert("I'm making counter of..." + OfferTen);
+    } else if (Offer == 40) {
+      alert("My counter is..." + OfferFive);
     }
   }
+
+  //   if (Offer >= asking) {
+  //     alert("Congratulations! Your Offer has been accepted");
+  //   } else {
+  //     alert("I'm making counter of..." + OfferTen);
+  //   }
+  // }
 
   function submitOffer(e) {
     //  e.target.value; // To be used in logic
