@@ -16,14 +16,19 @@
   justify-content: center;
   margin-top: 14px;
   /* border: solid grey; */
-
 }
 
 .offer-input_b {
-    display: flex;
-    justify-items: flex-end;
+  display: flex;
+  justify-items: flex-end;
 }
 
 .btn1 {
-    margin-left: 10px;
+  margin-left: 10px;
+}
+
+.prices {
+  font-size: 1rem;
+  color: rgb(244, 7, 7);
+  /* margin-bottom: 4px; */
 }

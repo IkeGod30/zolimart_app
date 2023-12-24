@@ -6,9 +6,15 @@ function ProdImg() {
   const [counterOff, setcounterOff] = useState(0);
   const [offersubmit, setoffersubmit] = useState(0);
   const [UserOffer, setUserOffer] = useState(0);
+  const [counterOffer, setcounterOffer] = useState();
 
   function changeUserOffer(e) {
     setUserOffer(e.target.value);
+  }
+
+  function changeCounterOffer(OfferTen) {
+    // Check !!!
+    setcounterOffer(OfferTen);
   }
 
   // function offerChange() {
@@ -25,7 +31,7 @@ function ProdImg() {
   const OfferFive = asking - DiscountFive;
   const OfferTwenty = asking - DiscountTwenty;
 
-  let counterOffer = null;
+  // let counterOffer = null;
   // function prom() {
   //   prompt("Please type in your offer");
   // }
@@ -50,10 +56,13 @@ function ProdImg() {
 
     if (Offer == 30) {
       alert("Congratulations! Your Offer has been accepted");
+      // changeCounterOffer(OfferTen);
     } else if (Offer == 35) {
       alert("I'm making counter of..." + OfferTen);
+      changeCounterOffer(OfferTen);
     } else if (Offer == 40) {
       alert("My counter is..." + OfferFive);
+      changeCounterOffer(OfferFive);
     }
   }
 
@@ -74,7 +83,7 @@ function ProdImg() {
         className="card"
         style={{
           width: "18rem",
-          height: "350px",
+          height: "373px",
           margin: "0 auto",
           borderRadius: "5px",
           border: "solid gray 1px",
@@ -88,9 +97,10 @@ function ProdImg() {
         {/* <img src="..." class="card-img-top" alt="..."> */}
         <div className="card-body">
           <h5 className="card-title">Basket of assorted items</h5>
-          <div>
+          <div className="prices">
             <p>Asking Price: ${asking} </p>
-            <p>Current Offer: $ {UserOffer}</p>
+            <p>Current User Offer: $ {UserOffer}</p>
+            <p>Current Counter Offer: ${counterOffer}</p>
             {/* <p>Counter Offer: $ {counterOffer}</p> */}
           </div>
           <div style={{ display: "flex", justifyContent: "space-evenly" }}>
