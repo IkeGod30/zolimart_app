@@ -53,10 +53,12 @@ function ProdImg() {
 
     // default:
     //   return alert(asking);
+    // for (Offer = 30; Offer++; ) {
+    //   alert("First Counter");
+    // }
 
     if (Offer == 30) {
       alert("Congratulations! Your Offer has been accepted");
-      // changeCounterOffer(OfferTen);
     } else if (Offer == 35) {
       alert("I'm making counter of..." + OfferTen);
       changeCounterOffer(OfferTen);
