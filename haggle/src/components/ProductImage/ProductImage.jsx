@@ -57,14 +57,17 @@ function ProdImg() {
     //   alert("First Counter");
     // }
 
-    if (Offer == 30) {
-      alert("Congratulations! Your Offer has been accepted");
-    } else if (Offer == 35) {
+    if (Offer < asking - asking * 0.3) {
       alert("I'm making counter of..." + OfferTen);
+      // alert(asking - asking * 0.3);
       changeCounterOffer(OfferTen);
-    } else if (Offer == 40) {
-      alert("My counter is..." + OfferFive);
+      // alert("Congratulations! Your Offer has been accepted");
+    } else if (Offer > asking - asking * 0.35) {
+      alert("I'm making counter of..." + OfferFive);
       changeCounterOffer(OfferFive);
+    } else if (Offer > asking - asking * 0.4) {
+      alert("My counter is..." + OfferTwenty);
+      changeCounterOffer(OfferTwenty);
     }
   }
 
