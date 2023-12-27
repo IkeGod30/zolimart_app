@@ -1,5 +1,6 @@
 import ProductComp from './components/Product/Product';
 import './App.css';
+import Toastalert from './components/Toast/Toast';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
 
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
       <ProductComp />
+      {/* <Toastalert /> */}
       {/* <ProductComp />
       <ProductComp />
       <ProductComp /> */}
