@@ -87,7 +87,12 @@ function ProdImg() {
 
     if (Offer == asking) {
       alert("Your Offer matches the asking price.");
+      changeCounterOffer(asking);
     }
+
+    // if (typeof Offer != number) {
+    //   alert("Your input must be a valid number");
+    // }
   }
 
   //   if (Offer >= asking) {
@@ -122,9 +127,18 @@ function ProdImg() {
         <div className="card-body">
           <h5 className="card-title">Basket of assorted items</h5>
           <div className="prices">
-            <p>Asking Price: ${asking} </p>
-            <p>Current User Offer: $ {UserOffer}</p>
-            <p>Current Counter Offer: ${counterOffer}</p>
+            <p>
+              Asking Price: <b>$</b>
+              {asking}{" "}
+            </p>
+            <p>
+              Current User Offer: <b>$</b>
+              {UserOffer}
+            </p>
+            <p>
+              Current Counter Offer: <b>$</b>
+              {counterOffer}
+            </p>
             {/* <p>Counter Offer: $ {counterOffer}</p> */}
           </div>
 
@@ -141,6 +155,7 @@ function ProdImg() {
             <input
               onKeyUp={changeUserOffer}
               type="text"
+              required
               placeholder="Type your amount"
               style={{ width: "100px", height: "35px" }}
             />
