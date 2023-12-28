@@ -88,6 +88,12 @@ function ProdImg() {
     if (Offer == asking) {
       alert("Your Offer matches the asking price.");
       changeCounterOffer(asking);
+    } else if (Offer > asking) {
+      alert(
+        "Your offer is above the Asking Price. Please make an offer equal or below the Asking Price"
+      );
+
+      changeCounterOffer(asking);
     }
 
     // if (typeof Offer != number) {
