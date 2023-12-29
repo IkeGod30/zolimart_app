@@ -133,18 +133,9 @@ function ProdImg() {
         <div className="card-body">
           <h5 className="card-title">Basket of assorted items</h5>
           <div className="prices">
-            <p>
-              Asking Price: <b>$</b>
-              {asking}{" "}
-            </p>
-            <p>
-              Current User Offer: <b>$</b>
-              {UserOffer}
-            </p>
-            <p>
-              Current Counter Offer: <b>$</b>
-              {counterOffer}
-            </p>
+            <p>Asking Price : ${asking} </p>
+            <p>Current User Offer : ${UserOffer}</p>
+            <p>Current Counter Offer : ${counterOffer}</p>
             {/* <p>Counter Offer: $ {counterOffer}</p> */}
           </div>
 
