@@ -2,4 +2,13 @@
   background-color: rgb(118, 54, 54);
   color: greenyellow;
   font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.amount {
+  color: inherit;
+  /* font-size: 1.025rem; */
+}
+.amountTxt {
+  color: whitesmoke;
 }
