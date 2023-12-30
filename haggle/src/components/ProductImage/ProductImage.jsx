@@ -16,7 +16,13 @@ function ProdImg() {
   // }
 
   function changeUserOffer(e) {
+    // if (
+    //   e.key === "Enter" &&
+    //   e.target.value.trim() !== "" &&
+    //   typeof e.key == NaN
+    // ) {
     setUserOffer(e.target.value);
+    // }
   }
 
   function changeCounterOffer(offerPercent) {
@@ -96,7 +102,12 @@ function ProdImg() {
       changeCounterOffer(asking);
     }
 
-    // if (typeof Offer != number) {
+    if (Offer == 0) {
+      alert("Offer cannot be zero");
+      changeCounterOffer(asking);
+    }
+
+    // if (typeof Offer === NaN) {
     //   alert("Your input must be a valid number");
     // }
   }
