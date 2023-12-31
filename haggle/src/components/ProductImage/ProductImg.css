@@ -1,14 +1,14 @@
 .prices {
-  background-color: rgb(118, 54, 54);
-  color: greenyellow;
+  color: green;
   font-size: 1.1rem;
   border-radius: 5px;
 }
 
 .amount {
   color: inherit;
-  /* font-size: 1.025rem; */
+  font-weight: bolder;
 }
 .amountTxt {
-  color: whitesmoke;
+  color: orange;
+  font-weight: bolder;
 }
