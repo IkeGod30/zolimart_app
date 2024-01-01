@@ -9,6 +9,10 @@
   font-weight: bolder;
 }
 .amountTxt {
-  color: orange;
+  color: rgb(219, 144, 6);
   font-weight: bolder;
+}
+
+.card-title {
+  font-style: italic;
 }
