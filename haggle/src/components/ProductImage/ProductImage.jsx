@@ -161,7 +161,13 @@ function ProdImg() {
 
           {/* Refactor and make the below a component */}
 
-          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              // marginTop: "1px",
+            }}
+          >
             <button
               onClick={OfferPrice}
               // onFocus={<Toastalert />}
@@ -174,7 +180,7 @@ function ProdImg() {
               type="text"
               required
               placeholder="Type your amount"
-              style={{ width: "100px", height: "35px" }}
+              style={{ width: "150px", height: "35px" }}
             />
             {/* <button className="btn btn-primary">Checkout</button> */}
           </div>
