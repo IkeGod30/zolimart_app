@@ -8,12 +8,17 @@ function ProdImg() {
   const [offersubmit, setoffersubmit] = useState(0);
   const [UserOffer, setUserOffer] = useState(0);
   const [counterOffer, setcounterOffer] = useState();
+  const [Offercount, setOffercount] = useState(null);
 
   // const [offerPercent, setofferPercent ] = useState();
 
   // function changeOfferPercent() {
   //   setofferPercent()
   // }
+
+  function changeOffercount() {
+    setOffercount(Offercount + 1);
+  }
 
   function changeUserOffer(e) {
     // if (
@@ -78,28 +83,33 @@ function ProdImg() {
       // <Toastalert />;
 
       changeCounterOffer(OfferTen);
+      changeOffercount();
       // alert("Congratulations! Your Offer has been accepted");
     } else if (Offer > asking - asking * 0.35 && Offer != asking) {
       // 29.25
       // alert("I'm making counter of..." + OfferFive);
       // <Toastalert />;
       changeCounterOffer(OfferFive);
+      changeOffercount();
     } else if (Offer > asking - asking * 0.4 && Offer != asking) {
       // 27
       // alert("My counter is..." + OfferTwenty);
       // <Toastalert />;
       changeCounterOffer(OfferTwenty);
+      changeOffercount();
     }
 
     if (Offer == asking) {
       alert("Your Offer matches the asking price.");
       changeCounterOffer(asking);
+      changeOffercount();
     } else if (Offer > asking) {
       alert(
         "Your offer is above the Asking Price. Please make an offer equal or below the Asking Price"
       );
 
       changeCounterOffer(asking);
+      changeOffercount();
     }
 
     if (Offer == 0) {
@@ -184,6 +194,7 @@ function ProdImg() {
             />
             {/* <button className="btn btn-primary">Checkout</button> */}
           </div>
+          <h4>Offer Count : {Offercount}</h4>
         </div>
       </div>
       {/* <Toastalert /> */}
