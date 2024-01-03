@@ -103,6 +103,7 @@ function ProdImg() {
       alert("Your Offer matches the asking price.");
       changeCounterOffer(asking);
       changeOffercount();
+      setOffercount(Offercount);
     } else if (Offer > asking) {
       alert(
         "Your offer is above the Asking Price. Please make an offer equal or below the Asking Price"
@@ -115,6 +116,7 @@ function ProdImg() {
     if (Offer == 0) {
       alert("Offer cannot be zero");
       changeCounterOffer(asking);
+      setOffercount(null);
     }
 
     // if (typeof Offer === NaN) {
