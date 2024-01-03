@@ -110,13 +110,13 @@ function ProdImg() {
       );
 
       changeCounterOffer(asking);
-      changeOffercount();
+      setOffercount(Offercount);
     }
 
     if (Offer == 0) {
       alert("Offer cannot be zero");
       changeCounterOffer(asking);
-      setOffercount(null);
+      setOffercount(Offercount);
     }
 
     // if (typeof Offer === NaN) {
@@ -196,7 +196,9 @@ function ProdImg() {
             />
             {/* <button className="btn btn-primary">Checkout</button> */}
           </div>
-          <h4>Offer Count : {Offercount}</h4>
+          <div>
+            <h4 className="OfferCount-div">Offer Count : {Offercount}</h4>
+          </div>
         </div>
       </div>
       {/* <Toastalert /> */}
