@@ -118,10 +118,6 @@ function ProdImg() {
       changeCounterOffer(asking);
       setOffercount(Offercount);
     }
-
-    // if (typeof Offer === NaN) {
-    //   alert("Your input must be a valid number");
-    // }
   }
 
   //   if (Offer >= asking) {
