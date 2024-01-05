@@ -78,8 +78,7 @@ function ProdImg() {
 
     if (Offer < asking - asking * 0.3 && Offer != asking) {
       // 31.5
-      // alert("I'm making counter of..." + OfferTen);
-      // alert(asking - asking * 0.3);
+
       // <Toastalert />;
 
       changeCounterOffer(OfferTen);
@@ -173,7 +172,6 @@ function ProdImg() {
             style={{
               display: "flex",
               justifyContent: "space-evenly",
-              // marginTop: "1px",
             }}
           >
             <button
