@@ -2,6 +2,7 @@ import "./ProductImg.css";
 import basket from "../assets/voucher.jpg";
 import { useState } from "react";
 import Toastalert from "../Toast/Toast";
+import OfferCount from "../OfferCount/OfferCount";
 
 function ProdImg() {
   const [counterOff, setcounterOff] = useState(0);
@@ -190,9 +191,8 @@ function ProdImg() {
             />
             {/* <button className="btn btn-primary">Checkout</button> */}
           </div>
-          <div>
-            <h4 className="OfferCount-div">Offer Count : {Offercount}</h4>
-          </div>
+
+          <OfferCount count={Offercount} />
         </div>
       </div>
       {/* <Toastalert /> */}
