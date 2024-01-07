@@ -47,10 +47,12 @@ function ProdImg() {
   const DiscountTen = asking * 0.1;
   const DiscountFive = asking * 0.05;
   const DiscountTwenty = asking * 0.2;
+  const DiscountThirty = asking * 0.3; // Unused
 
   const OfferTen = asking - DiscountTen;
   const OfferFive = asking - DiscountFive;
   const OfferTwenty = asking - DiscountTwenty;
+  const OfferThirty = asking - DiscountThirty; // Unused
 
   // let counterOffer = null;
   // function prom() {
@@ -97,6 +99,10 @@ function ProdImg() {
       // alert("My counter is..." + OfferTwenty);
       // <Toastalert />;
       changeCounterOffer(OfferTwenty);
+      changeOffercount();
+    } else if (Offer > asking - asking * 0.3 && Offer != asking) {
+      // 31.5
+      changeCounterOffer(OfferThirty);
       changeOffercount();
     }
 
@@ -150,9 +156,11 @@ function ProdImg() {
           height="40%"
           style={{ margin: "0 auto" }}
         />
+
         {/* <img src="..." class="card-img-top" alt="..."> */}
         <div className="card-body">
           <h5 className="card-title">Basket of assorted items</h5>
+          <hr />
           <div className="prices">
             <p>
               <span className="amountTxt">Asking Price :</span>{" "}
@@ -166,6 +174,7 @@ function ProdImg() {
               <span className="amountTxt">Current Counter Offer :</span>{" "}
               <span className="amount">${counterOffer}</span>
             </p>
+
             {/* <p>Counter Offer: $ {counterOffer}</p> */}
           </div>
 
