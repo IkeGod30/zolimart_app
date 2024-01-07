@@ -10,6 +10,7 @@ function ProdImg() {
   const [UserOffer, setUserOffer] = useState(0);
   const [counterOffer, setcounterOffer] = useState();
   const [Offercount, setOffercount] = useState(null);
+  // const [isValid, setisValid] = useState(false);
 
   // const [offerPercent, setofferPercent ] = useState();
 
@@ -136,17 +137,18 @@ function ProdImg() {
       <div
         className="card"
         style={{
-          width: "18rem",
-          height: "373px",
+          width: "23rem",
+          height: "510px",
           margin: "0 auto",
           borderRadius: "5px",
           border: "solid gray 1px",
         }}
       >
         <img
-          width="221"
+          width="100%"
           src={basket}
-          style={{ margin: "0 auto", marginTop: "10px" }}
+          height="40%"
+          style={{ margin: "0 auto" }}
         />
         {/* <img src="..." class="card-img-top" alt="..."> */}
         <div className="card-body">
@@ -191,7 +193,7 @@ function ProdImg() {
             />
             {/* <button className="btn btn-primary">Checkout</button> */}
           </div>
-
+          <hr />
           <OfferCount count={Offercount} />
         </div>
       </div>
