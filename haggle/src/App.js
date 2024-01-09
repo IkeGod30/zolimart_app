@@ -9,6 +9,8 @@ function App() {
 
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
       <ProductComp />
+      <ProductComp />
+      
       {/* <Toastalert /> */}
       {/* <ProductComp />
       <ProductComp />

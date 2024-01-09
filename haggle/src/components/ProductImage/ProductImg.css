@@ -18,7 +18,8 @@
 }
 
 .btn {
-  padding: 4px;
+  padding: 6px;
+  border-radius: 15px;
 }
 
 /* .OfferCount-div {

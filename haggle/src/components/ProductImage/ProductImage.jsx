@@ -1,8 +1,8 @@
 import "./ProductImg.css";
-import basket from "../assets/voucher.jpg";
 import { useState } from "react";
 import Toastalert from "../Toast/Toast";
 import OfferCount from "../OfferCount/OfferCount";
+import ProductImg from "../ProductImg/ProductImg";
 
 function ProdImg() {
   const [counterOff, setcounterOff] = useState(0);
@@ -10,13 +10,6 @@ function ProdImg() {
   const [UserOffer, setUserOffer] = useState(0);
   const [counterOffer, setcounterOffer] = useState();
   const [Offercount, setOffercount] = useState(null);
-  // const [isValid, setisValid] = useState(false);
-
-  // const [offerPercent, setofferPercent ] = useState();
-
-  // function changeOfferPercent() {
-  //   setofferPercent()
-  // }
 
   function changeOffercount() {
     setOffercount(Offercount + 1);
@@ -35,7 +28,6 @@ function ProdImg() {
   function changeCounterOffer(offerPercent) {
     // Check !!! //
     setcounterOffer(offerPercent); // Set  argument with state also
-    // <Toastalert />;
   }
 
   // function offerChange() {
@@ -80,33 +72,28 @@ function ProdImg() {
     //   alert("First Counter");
     // }
 
-    if (Offer < asking - asking * 0.3 && Offer != asking) {
+    if (Offer < asking - asking * 0.3 && Offer !== asking) {
       // 31.5
-
-      // <Toastalert />;
-
       changeCounterOffer(OfferTen);
       changeOffercount();
       // alert("Congratulations! Your Offer has been accepted");
-    } else if (Offer > asking - asking * 0.35 && Offer != asking) {
+    } else if (Offer > asking - asking * 0.35 && Offer !== asking) {
       // 29.25
-      // alert("I'm making counter of..." + OfferFive);
-      // <Toastalert />;
+
       changeCounterOffer(OfferFive);
       changeOffercount();
-    } else if (Offer > asking - asking * 0.4 && Offer != asking) {
+    } else if (Offer > asking - asking * 0.4 && Offer !== asking) {
       // 27
-      // alert("My counter is..." + OfferTwenty);
-      // <Toastalert />;
+
       changeCounterOffer(OfferTwenty);
       changeOffercount();
-    } else if (Offer > asking - asking * 0.3 && Offer != asking) {
+    } else if (Offer > asking - asking * 0.3 && Offer !== asking) {
       // 31.5
       changeCounterOffer(OfferThirty);
       changeOffercount();
     }
 
-    if (Offer == asking) {
+    if (Offer === asking) {
       alert("Your Offer matches the asking price.");
       changeCounterOffer(asking);
       changeOffercount();
@@ -120,7 +107,7 @@ function ProdImg() {
       setOffercount(Offercount);
     }
 
-    if (Offer == 0) {
+    if (Offer === 0) {
       alert("Offer cannot be zero");
       changeCounterOffer(asking);
       setOffercount(Offercount);
@@ -134,10 +121,6 @@ function ProdImg() {
   //   }
   // }
 
-  function submitOffer(e) {
-    //  e.target.value; // To be used in logic
-  }
-
   return (
     <>
       <div
@@ -150,12 +133,14 @@ function ProdImg() {
           border: "solid gray 1px",
         }}
       >
-        <img
+        <ProductImg />
+
+        {/* <img
           width="100%"
           src={basket}
           height="40%"
           style={{ margin: "0 auto" }}
-        />
+        /> */}
 
         {/* <img src="..." class="card-img-top" alt="..."> */}
         <div className="card-body">
@@ -174,8 +159,6 @@ function ProdImg() {
               <span className="amountTxt">Current Counter Offer :</span>{" "}
               <span className="amount">${counterOffer}</span>
             </p>
-
-            {/* <p>Counter Offer: $ {counterOffer}</p> */}
           </div>
 
           {/* Refactor and make the below a component */}
@@ -186,11 +169,7 @@ function ProdImg() {
               justifyContent: "space-evenly",
             }}
           >
-            <button
-              onClick={OfferPrice}
-              // onFocus={<Toastalert />}
-              className="btn btn-primary"
-            >
+            <button onClick={OfferPrice} className="btn btn-primary">
               Make Offer
             </button>
             <input
