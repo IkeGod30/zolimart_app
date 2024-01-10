@@ -9,7 +9,9 @@ function ProdImg() {
   const [offersubmit, setoffersubmit] = useState(0);
   const [UserOffer, setUserOffer] = useState(0);
   const [counterOffer, setcounterOffer] = useState();
-  const [Offercount, setOffercount] = useState(null);
+  const [Offercount, setOffercount] = useState(0);
+  // const NumberOfDiscounts = [];
+  const TotalOfferCount = 4;
 
   function changeOffercount() {
     setOffercount(Offercount + 1);
@@ -45,6 +47,13 @@ function ProdImg() {
   const OfferFive = asking - DiscountFive;
   const OfferTwenty = asking - DiscountTwenty;
   const OfferThirty = asking - DiscountThirty; // Unused
+
+  // const TotalOfferCount = [
+  //   DiscountFive,
+  //   DiscountTen,
+  //   DiscountTwenty,
+  //   DiscountThirty,
+  // ]; //
 
   // let counterOffer = null;
   // function prom() {
@@ -93,7 +102,7 @@ function ProdImg() {
       changeOffercount();
     }
 
-    if (Offer === asking) {
+    if (Offer == asking) {
       alert("Your Offer matches the asking price.");
       changeCounterOffer(asking);
       changeOffercount();
@@ -107,12 +116,17 @@ function ProdImg() {
       setOffercount(Offercount);
     }
 
-    if (Offer === 0) {
+    if (Offer == 0) {
       alert("Offer cannot be zero");
-      changeCounterOffer(asking);
+      changeCounterOffer(null);
       setOffercount(Offercount);
     }
   }
+
+  // if (Offercount > TotalOfferCount) {
+  //   alert("You have reached the maximum number of offer");
+  //   setOffercount(OfferCount);
+  // }
 
   //   if (Offer >= asking) {
   //     alert("Congratulations! Your Offer has been accepted");
@@ -182,7 +196,7 @@ function ProdImg() {
             {/* <button className="btn btn-primary">Checkout</button> */}
           </div>
           <hr />
-          <OfferCount count={Offercount} />
+          <OfferCount count={Offercount} totalCount={TotalOfferCount} />
         </div>
       </div>
       {/* <Toastalert /> */}
