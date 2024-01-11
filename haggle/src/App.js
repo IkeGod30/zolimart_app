@@ -1,6 +1,7 @@
 import ProductComp from './components/Product/Product';
 import './App.css';
 import Toastalert from './components/Toast/Toast';
+import BlogText from './components/Blog/Blog';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
       <ProductComp />
       <ProductComp /> */}
       </div>
+<br /><br />
+
+      <BlogText />
    
     </div>
   );

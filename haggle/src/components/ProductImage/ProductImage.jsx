@@ -10,11 +10,16 @@ function ProdImg() {
   const [UserOffer, setUserOffer] = useState(0);
   const [counterOffer, setcounterOffer] = useState();
   const [Offercount, setOffercount] = useState(0);
+  const [btnTitle, setbtnTitle] = useState(true);
   // const NumberOfDiscounts = [];
   const TotalOfferCount = 4;
 
   function changeOffercount() {
     setOffercount(Offercount + 1);
+  }
+
+  function handleBtnTitle() {
+    setbtnTitle(!btnTitle);
   }
 
   function changeUserOffer(e) {
@@ -186,6 +191,9 @@ function ProdImg() {
             <button onClick={OfferPrice} className="btn btn-primary">
               Make Offer
             </button>
+            {/* <button onClick={handleBtnTitle} className="btn btn-primary">
+              {btnTitle ? "Make Offer" : "Accept Offer"}
+            </button> */}
             <input
               onKeyUp={changeUserOffer}
               type="text"

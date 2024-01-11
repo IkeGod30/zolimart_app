@@ -1,0 +1,16 @@
+.blog {
+  background-color: blanchedalmond;
+  height: 300px;
+}
+
+.btn2 {
+  /* display: flex; */
+  border-radius: 2px;
+  width: 250px;
+  background-color: maroon !important;
+}
+
+textarea {
+  width: 250px;
+  height: 150px;
+}
