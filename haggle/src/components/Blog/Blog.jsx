@@ -9,7 +9,7 @@ export default function BlogText() {
       text3: "Izuogu",
     },
   ];
-  const [message, setmessage] = useState(msg);
+  const [message, setmessage] = useState();
 
   function SendMessage(e) {
     setmessage(e.target.value);
@@ -30,12 +30,12 @@ export default function BlogText() {
     <div className="blog">
       <h1>Enter Text</h1>
       <h4>{message}</h4>
-      {message.text}
+      {/* {message.text}
       {message.text2}
-      {message.text3}
+      {message.text3} */}
       <form onSubmit={handleSubmit}>
         <textarea
-          value={message.text}
+          value={message}
           onChange={SendMessage}
           placeholder="Please type your message"
         />
