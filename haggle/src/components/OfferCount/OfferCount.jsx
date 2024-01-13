@@ -1,7 +1,7 @@
 import "./OfferCount.css";
 import { useState } from "react";
 
-export default function OfferCount({ count, status, totalCount }) {
+export default function OfferCount({ count, status, totalCount, entity }) {
   const TotalOfferCount = 4; //
   //   const [isValid, setisValid] = useState(false);
 
@@ -19,6 +19,9 @@ export default function OfferCount({ count, status, totalCount }) {
       <h4 className="OfferCount-div">
         Offer Count : {count} of {totalCount}
       </h4>
+      {/* <h3>
+        {entity.first + " " + entity.second} {entity.length}
+      </h3> */}
     </div>
   );
 }
