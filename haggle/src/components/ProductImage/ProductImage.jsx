@@ -34,7 +34,10 @@ function ProdImg() {
 
   function changeCounterOffer(offerPercent) {
     // Check !!! //
-    setcounterOffer(offerPercent); // Set  argument with state also
+    setcounterOffer(offerPercent); // Set argument with state also
+    // setTimeout(() => {
+    //   setcounterOff(offerPercent);
+    // }, 5000);
   }
 
   // function offerChange() {
@@ -90,6 +93,14 @@ function ProdImg() {
       // 31.5
       changeCounterOffer(OfferTen);
       changeOffercount();
+
+      /// #### Used to delay the above code execution #####
+
+      // setTimeout(() => {
+      //   changeCounterOffer(OfferTen);
+      //   changeOffercount();
+      // }, 5000);
+
       // alert("Congratulations! Your Offer has been accepted");
     } else if (Offer > asking - asking * 0.35 && Offer !== asking) {
       // 29.25
