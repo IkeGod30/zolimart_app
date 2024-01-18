@@ -226,7 +226,6 @@ function ProdImg() {
           />
         </div>
       </div>
-      {/* <Toastalert /> */}
     </>
   );
 }
