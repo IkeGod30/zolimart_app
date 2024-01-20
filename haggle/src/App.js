@@ -6,7 +6,7 @@ import BlogText from './components/Blog/Blog';
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to Zolimart</h1>
+      <h1>Welcome to ZoliMart</h1>
 
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
       <ProductComp />
