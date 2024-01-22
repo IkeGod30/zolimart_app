@@ -1,6 +1,6 @@
 import "./ProductImg.css";
 import { useState } from "react";
-import Toastalert from "../Toast/Toast";
+// import Toastalert from "../Toast/Toast";
 import OfferCount from "../OfferCount/OfferCount";
 import ProductImg from "../ProductImg/ProductImg";
 
