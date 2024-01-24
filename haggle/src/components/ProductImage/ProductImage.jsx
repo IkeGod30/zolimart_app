@@ -218,11 +218,11 @@ function ProdImg() {
           <OfferCount
             count={Offercount}
             totalCount={TotalOfferCount}
-            entity={{
-              first: "Monday",
-              second: "Tuesday",
-              third: "Wednesday",
-            }}
+            // entity={{
+            //   first: "Monday",
+            //   second: "Tuesday",
+            //   third: "Wednesday",
+            // }}
           />
         </div>
       </div>
