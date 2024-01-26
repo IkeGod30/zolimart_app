@@ -1,6 +1,5 @@
 import ProductComp from './components/Product/Product';
 import './App.css';
-import Toastalert from './components/Toast/Toast';
 import BlogText from './components/Blog/Blog';
 
 function App() {
