@@ -3,7 +3,9 @@
 export default function NewProduct() {
   return (
     <div>
-      <label></label>
+      <form>
+        <label></label>
+      </form>
     </div>
   );
 }
