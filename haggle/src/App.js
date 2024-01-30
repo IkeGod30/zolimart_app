@@ -11,7 +11,7 @@ function App() {
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
       <ProductComp />
       <ProductComp />
-      <NewProduct />
+      {/* <NewProduct /> */}
       
      
       {/* <ProductComp />
@@ -20,7 +20,7 @@ function App() {
       </div>
 <br /><br />
 
-      <BlogText />
+      {/* <BlogText /> */}
    
     </div>
   );
