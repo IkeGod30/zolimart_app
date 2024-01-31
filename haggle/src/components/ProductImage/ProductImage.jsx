@@ -139,10 +139,18 @@ function ProdImg() {
     }
   }
 
-  // if (Offercount > TotalOfferCount) {
-  //   alert("You have reached the maximum number of offer");
-  //   setOffercount(OfferCount);
-  // }
+  if (Offercount > TotalOfferCount) {
+    // alert("You have reached the maximum number of offer");
+    return (
+      <div>
+        <h4 style={{ color: "red" }}>Limit Exceeded</h4>
+        <button className="btn btn-info" onClick={""}>
+          Restart Bargain
+        </button>
+      </div>
+    );
+    setOffercount(OfferCount);
+  }
 
   //   if (Offer >= asking) {
   //     alert("Congratulations! Your Offer has been accepted");
