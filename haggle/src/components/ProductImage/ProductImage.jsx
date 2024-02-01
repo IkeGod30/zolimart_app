@@ -3,6 +3,7 @@ import { useState } from "react";
 // import Toastalert from "../Toast/Toast";
 import OfferCount from "../OfferCount/OfferCount";
 import ProductImg from "../ProductImg/ProductImg";
+import NewProduct from "../CreateProduct/CreateProduct";
 
 function ProdImg() {
   const [counterOff, setcounterOff] = useState(0);
@@ -149,8 +150,10 @@ function ProdImg() {
         </button>
       </div>
     );
-    setOffercount(OfferCount);
+    // setOffercount(OfferCount);
   }
+
+  // return <ProdImg />;
 
   //   if (Offer >= asking) {
   //     alert("Congratulations! Your Offer has been accepted");
