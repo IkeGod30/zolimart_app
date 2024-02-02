@@ -226,15 +226,7 @@ function ProdImg() {
             {/* <button className="btn btn-primary">Checkout</button> */}
           </div>
           <hr />
-          <OfferCount
-            count={Offercount}
-            totalCount={TotalOfferCount}
-            // entity={{
-            //   first: "Monday",
-            //   second: "Tuesday",
-            //   third: "Wednesday",
-            // }}
-          />
+          <OfferCount count={Offercount} totalCount={TotalOfferCount} />
         </div>
       </div>
     </>
