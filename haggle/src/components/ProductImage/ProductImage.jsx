@@ -30,6 +30,10 @@ function ProdImg() {
     //   typeof e.key == NaN
     // ) {
     setUserOffer(e.target.value);
+
+    // if (UserOffer < 0) {
+    //   setUserOffer(0);
+    // }
     // }
   }
 
@@ -133,10 +137,11 @@ function ProdImg() {
       setOffercount(Offercount);
     }
 
-    if (Offer == 0) {
-      alert("Offer cannot be zero");
+    if (Offer <= 0) {
+      alert("Offer cannot be zero or less than zero");
       changeCounterOffer(null);
       setOffercount(Offercount);
+      setUserOffer(0);
     }
   }
 
