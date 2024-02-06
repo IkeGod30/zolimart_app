@@ -138,6 +138,7 @@ function ProdImg() {
     }
 
     if (Offer <= 0) {
+      // You could also use the While statement
       alert("Offer cannot be zero or less than zero");
       changeCounterOffer(null);
       setOffercount(Offercount);
