@@ -30,11 +30,6 @@ function ProdImg() {
     //   typeof e.key == NaN
     // ) {
     setUserOffer(e.target.value);
-
-    // if (UserOffer < 0) {
-    //   setUserOffer(0);
-    // }
-    // }
   }
 
   function changeCounterOffer(offerPercent) {
@@ -49,7 +44,7 @@ function ProdImg() {
   //   setoffersubmit(submitOffer);
   // }
 
-  const asking = 45;
+  const asking = 45; // Refactor in state
   let Offer = UserOffer;
   const DiscountTen = asking * 0.1;
   const DiscountFive = asking * 0.05;
