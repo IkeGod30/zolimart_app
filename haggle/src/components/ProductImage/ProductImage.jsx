@@ -1,5 +1,6 @@
 import "./ProductImg.css";
 import { useState } from "react";
+import { useReducer } from "react"; // Use for Reducer function in place of useState
 // import Toastalert from "../Toast/Toast";
 import OfferCount from "../OfferCount/OfferCount";
 import ProductImg from "../ProductImg/ProductImg";
