@@ -11,10 +11,25 @@ function ProdImg() {
   const [offersubmit, setoffersubmit] = useState(0);
   const [UserOffer, setUserOffer] = useState(0);
   const [counterOffer, setcounterOffer] = useState();
-  const [Offercount, setOffercount] = useState(0);
+  const [Offercount, setOffercount] = useState(0); //
   const [btnTitle, setbtnTitle] = useState(true);
+
+  // const [Offercount, dispatch] = useReducer(offerReducer, OfferCount); //
+
   // const NumberOfDiscounts = [];
   const TotalOfferCount = 4;
+
+  // function changeOffercount(OfferCount) {
+  //   dispatch({
+  //     type: "changedOffer",
+  //   });
+  // }
+
+  function offerReducer(OfferCount, action) {
+    if (action.type === "changedOffer") {
+      return Offercount + 1;
+    }
+  }
 
   function changeOffercount() {
     setOffercount(Offercount + 1);
@@ -229,6 +244,7 @@ function ProdImg() {
           </div>
           <hr />
           <OfferCount count={Offercount} totalCount={TotalOfferCount} />
+          {/* <OfferCount count={changeOffercount} totalCount={TotalOfferCount} /> */}
         </div>
       </div>
     </>
