@@ -14,12 +14,12 @@ function ProdImg() {
   const [Offercount, setOffercount] = useState(0); //
   const [btnTitle, setbtnTitle] = useState(true);
 
-  // const [Offercount, dispatch] = useReducer(offerReducer, OfferCount); //
+  // const [Offercount, dispatch] = useReducer(offerReducer, 0); //
 
   // const NumberOfDiscounts = [];
   const TotalOfferCount = 4;
 
-  // function changeOffercount(OfferCount) {
+  // function changeOffercount() {
   //   dispatch({
   //     type: "changedOffer",
   //   });
@@ -62,15 +62,17 @@ function ProdImg() {
 
   const asking = 45; // Refactor in state
   let Offer = UserOffer;
-  const DiscountTen = asking * 0.1;
-  const DiscountFive = asking * 0.05;
-  const DiscountTwenty = asking * 0.2;
-  const DiscountThirty = asking * 0.3; // Unused
+  const DiscountFive = (asking / 100) * 5;
+  const DiscountTen = (asking / 100) * 10;
+  const DiscountTwenty = (asking / 100) * 20;
+  const DiscountThirty = (asking / 100) * 30; // Unused
+  const DiscountForty = (asking / 100) * 40; // Unused
 
-  const OfferTen = asking - DiscountTen;
   const OfferFive = asking - DiscountFive;
+  const OfferTen = asking - DiscountTen;
   const OfferTwenty = asking - DiscountTwenty;
   const OfferThirty = asking - DiscountThirty; // Unused
+  const OfferForty = asking - DiscountForty; // Unused
 
   // const TotalOfferCount = [
   //   DiscountFive,
@@ -105,8 +107,9 @@ function ProdImg() {
     //   alert("First Counter");
     // }
 
-    if (Offer < asking - asking * 0.3 && Offer !== asking) {
-      // 31.5
+    if (Offer < asking - DiscountTen && Offer !== asking) {
+      // 40.5
+      alert(asking - (asking / 100) * 10);
       changeCounterOffer(OfferTen);
       changeOffercount();
 
