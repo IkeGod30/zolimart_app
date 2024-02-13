@@ -17,7 +17,7 @@ function ProdImg() {
   // const [Offercount, dispatch] = useReducer(offerReducer, 0); //
 
   // const NumberOfDiscounts = [];
-  const TotalOfferCount = 4;
+  const TotalOfferCount = 5;
 
   // function changeOffercount() {
   //   dispatch({
@@ -62,17 +62,17 @@ function ProdImg() {
 
   const asking = 45; // Refactor in state
   let Offer = UserOffer;
-  const DiscountFive = (asking / 100) * 5;
-  const DiscountTen = (asking / 100) * 10;
-  const DiscountTwenty = (asking / 100) * 20;
-  const DiscountThirty = (asking / 100) * 30; // Unused
-  const DiscountForty = (asking / 100) * 40; // Unused
+  const DiscountFive = (asking / 100) * 5; // 2.25
+  const DiscountTen = (asking / 100) * 10; // 4.5
+  const DiscountTwenty = (asking / 100) * 20; // 9
+  const DiscountThirty = (asking / 100) * 30; // 13.5 // Unused
+  const DiscountForty = (asking / 100) * 40; // 18  //Unused
 
-  const OfferFive = asking - DiscountFive;
-  const OfferTen = asking - DiscountTen;
-  const OfferTwenty = asking - DiscountTwenty;
-  const OfferThirty = asking - DiscountThirty; // Unused
-  const OfferForty = asking - DiscountForty; // Unused
+  const OfferFive = asking - DiscountFive; // 42.75
+  const OfferTen = asking - DiscountTen; // 40.5
+  const OfferTwenty = asking - DiscountTwenty; // 36
+  const OfferThirty = asking - DiscountThirty; // 31.5 // Unused
+  const OfferForty = asking - DiscountForty; // 27  // Unused
 
   // const TotalOfferCount = [
   //   DiscountFive,
@@ -106,10 +106,12 @@ function ProdImg() {
     // for (Offer = 30; Offer++; ) {
     //   alert("First Counter");
     // }
-
-    if (Offer < asking - DiscountTen && Offer !== asking) {
+    if (Offer < asking - DiscountFive && Offer !== asking) {
+      changeCounterOffer(OfferFive);
+      changeOffercount();
+    } else if (Offer < asking - DiscountTen && Offer !== asking) {
       // 40.5
-      alert(asking - (asking / 100) * 10);
+      // alert(asking - (asking / 100) * 10);
       changeCounterOffer(OfferTen);
       changeOffercount();
 
@@ -121,19 +123,19 @@ function ProdImg() {
       // }, 5000);
 
       // alert("Congratulations! Your Offer has been accepted");
-    } else if (Offer > asking - asking * 0.35 && Offer !== asking) {
+    } else if (Offer > asking - DiscountTwenty && Offer !== asking) {
       // 29.25
-
-      changeCounterOffer(OfferFive);
-      changeOffercount();
-    } else if (Offer > asking - asking * 0.4 && Offer !== asking) {
-      // 27
 
       changeCounterOffer(OfferTwenty);
       changeOffercount();
-    } else if (Offer > asking - asking * 0.3 && Offer !== asking) {
-      // 31.5
+    } else if (Offer > asking - DiscountThirty && Offer !== asking) {
+      // 27
+
       changeCounterOffer(OfferThirty);
+      changeOffercount();
+    } else if (Offer > asking - DiscountForty && Offer !== asking) {
+      // 31.5
+      changeCounterOffer(OfferForty);
       changeOffercount();
     }
 
@@ -172,15 +174,6 @@ function ProdImg() {
     );
     // setOffercount(OfferCount);
   }
-
-  // return <ProdImg />;
-
-  //   if (Offer >= asking) {
-  //     alert("Congratulations! Your Offer has been accepted");
-  //   } else {
-  //     alert("I'm making counter of..." + OfferTen);
-  //   }
-  // }
 
   return (
     <>
