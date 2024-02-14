@@ -124,17 +124,15 @@ function ProdImg() {
 
       // alert("Congratulations! Your Offer has been accepted");
     } else if (Offer > asking - DiscountTwenty && Offer !== asking) {
-      // 29.25
+      // Check figure
 
       changeCounterOffer(OfferTwenty);
       changeOffercount();
     } else if (Offer > asking - DiscountThirty && Offer !== asking) {
-      // 27
-
       changeCounterOffer(OfferThirty);
       changeOffercount();
     } else if (Offer > asking - DiscountForty && Offer !== asking) {
-      // 31.5
+      // Check figure
       changeCounterOffer(OfferForty);
       changeOffercount();
     }
