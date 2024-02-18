@@ -74,22 +74,6 @@ function ProdImg() {
   const OfferThirty = asking - DiscountThirty; // 31.5 // Unused
   const OfferForty = asking - DiscountForty; // 27  // Unused
 
-  // const TotalOfferCount = [
-  //   DiscountFive,
-  //   DiscountTen,
-  //   DiscountTwenty,
-  //   DiscountThirty,
-  // ]; //
-
-  // let counterOffer = null;
-  // function prom() {
-  //   prompt("Please type in your offer");
-  // }
-
-  // function changeOffer() {
-  //   setcounterOff(asking * 0.4);
-  // }
-
   function OfferPrice() {
     // const Offer = 0;
     // const LAST_PRICE = askingPrice * 0.15;
@@ -107,11 +91,11 @@ function ProdImg() {
     //   alert("First Counter");
     // }
     if (Offer < asking - DiscountFive && Offer !== asking) {
+      // setcounterOffer(OfferFive);
       changeCounterOffer(OfferFive);
       changeOffercount();
     } else if (Offer < asking - DiscountTen && Offer !== asking) {
-      // 40.5
-      // alert(asking - (asking / 100) * 10);
+      // setcounterOffer(OfferTen);
       changeCounterOffer(OfferTen);
       changeOffercount();
 
