@@ -7,16 +7,25 @@ import ProductImg from "../ProductImg/ProductImg";
 import NewProduct from "../CreateProduct/CreateProduct";
 
 function ProdImg() {
-  const [counterOff, setcounterOff] = useState(0);
-  const [offersubmit, setoffersubmit] = useState(0);
+  // const [counterOff, setcounterOff] = useState(0);
+  // const [offersubmit, setoffersubmit] = useState(0);
   const [UserOffer, setUserOffer] = useState(0);
   const [counterOffer, setcounterOffer] = useState();
+  const [disco, setdisco] = useState(discounts);
   const [Offercount, setOffercount] = useState(0); //
   const [btnTitle, setbtnTitle] = useState(true);
 
   // const [Offercount, dispatch] = useReducer(offerReducer, 0); //
 
   // const NumberOfDiscounts = [];
+
+  const discounts = [
+    { ind: 0, disc: OfferFive },
+    { ind: 1, disc: OfferTen },
+    { ind: 2, disc: OfferTwenty },
+    { ind: 3, disc: OfferThirty },
+    { ind: 4, disc: OfferForty },
+  ];
   const TotalOfferCount = 5;
 
   // function changeOffercount() {
@@ -56,6 +65,10 @@ function ProdImg() {
     // }, 5000);
   }
 
+  function changeDisco(disc) {
+    // Use map to handle the array
+    setdisco([...disco, { disc: OfferFive }]);
+  }
   // function offerChange() {
   //   setoffersubmit(submitOffer);
   // }
