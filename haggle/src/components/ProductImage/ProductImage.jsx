@@ -11,7 +11,7 @@ function ProdImg() {
   // const [offersubmit, setoffersubmit] = useState(0);
   const [UserOffer, setUserOffer] = useState(0);
   const [counterOffer, setcounterOffer] = useState();
-  const [disco, setdisco] = useState(discounts);
+  // const [disco, setdisco] = useState(discounts);
   const [Offercount, setOffercount] = useState(0); //
   const [btnTitle, setbtnTitle] = useState(true);
 
@@ -19,13 +19,13 @@ function ProdImg() {
 
   // const NumberOfDiscounts = [];
 
-  const discounts = [
-    { ind: 0, disc: OfferFive },
-    { ind: 1, disc: OfferTen },
-    { ind: 2, disc: OfferTwenty },
-    { ind: 3, disc: OfferThirty },
-    { ind: 4, disc: OfferForty },
-  ];
+  // const discounts = [
+  //   { ind: 0, disc: OfferFive },
+  //   { ind: 1, disc: OfferTen },
+  //   { ind: 2, disc: OfferTwenty },
+  //   { ind: 3, disc: OfferThirty },
+  //   { ind: 4, disc: OfferForty },
+  // ];
   const TotalOfferCount = 5;
 
   // function changeOffercount() {
@@ -67,7 +67,7 @@ function ProdImg() {
 
   function changeDisco(disc) {
     // Use map to handle the array
-    setdisco([...disco, { disc: OfferFive }]);
+    // setdisco([...disco, { disc: OfferFive }]);
   }
   // function offerChange() {
   //   setoffersubmit(submitOffer);
@@ -105,7 +105,7 @@ function ProdImg() {
     // }
     if (Offer < asking - DiscountFive && Offer !== asking) {
       // setcounterOffer(OfferFive);
-      changeCounterOffer(OfferFive);
+     changeCounterOffer(OfferFive);
       changeOffercount();
     } else if (Offer < asking - DiscountTen && Offer !== asking) {
       // setcounterOffer(OfferTen);

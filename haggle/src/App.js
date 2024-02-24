@@ -1,3 +1,5 @@
+import Testing from "./components/Test"; // Code Test and REMOVE
+
 import ProductComp from './components/Product/Product';
 import './App.css';
 import BlogText from './components/Blog/Blog';
@@ -22,6 +24,8 @@ function App() {
 <br /><br />
 
       {/* <BlogText /> */}
+
+      {/* <Testing /> */}
    
     </div>
   );
