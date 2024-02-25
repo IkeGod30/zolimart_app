@@ -1,10 +1,16 @@
 import { useState } from "react";
 
 function Testing() {
-  const [dat, setdate] = useState([]);
+  const [dat, setdat] = useState(inf);
 
   function changeDat() {
-    setdate(...dat, { mon: 250, tues: 300, sat: 450 });
+    setdat([...dat, { day: "fri", inc: 501 }]);
+
+    // setdat(
+    //   dat.map((d) => {
+    //     return <li>{d}</li>;
+    //   })
+    // );
   }
   return (
     <div>
@@ -17,22 +23,22 @@ function Testing() {
       <button>Three...</button> <br />
       <br />
       <div>
-        <h3>{dat.mon}</h3> <br />
-        <h3>{dat.tues}</h3> <br />
-        <h3>{dat.sat}</h3>
+        <h3>{dat.day}</h3> <br />
+        <h3>{dat.inc}</h3> <br />
+        {/* <h3>{dat.sat}</h3> */}
       </div>
     </div>
   );
 }
 
 const inf = [
-  { mon: 80 },
-  { tues: 90 },
-  { wed: 97 },
-  { thur: 81 },
-  { fri: 135 },
-  { sat: 85 },
-  { sun: 139 },
+  { day: "mon", inc: 80 },
+  { day: "tues", inc: 90 },
+  { day: "wed", inc: 101 },
+  { day: "thur", inc: 112 },
+  { day: "fri", inc: 121 },
+  { day: "sat", inc: 141 },
+  { day: "sun", inc: 148 },
 ];
 
 export default Testing;
