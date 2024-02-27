@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Testing() {
-  const [dat, setdat] = useState(inf);
+  const [dat, setdat] = useState([]);
 
   function changeDat() {
     setdat({ day: "fri", inc: 501 });
