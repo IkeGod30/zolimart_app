@@ -25,7 +25,7 @@ function App() {
 
       {/* <BlogText /> */}
 
-      {/* <Testing /> */}
+      <Testing />
    
     </div>
   );

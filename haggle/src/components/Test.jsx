@@ -4,7 +4,7 @@ function Testing() {
   const [dat, setdat] = useState(inf);
 
   function changeDat() {
-    setdat([...dat, { day: "fri", inc: 501 }]);
+    setdat({ day: "fri", inc: 501 });
 
     // setdat(
     //   dat.map((d) => {
@@ -17,7 +17,13 @@ function Testing() {
       <button onClick={changeDat}>One...</button>
       <br />
       <br />
-      <button>Two...</button>
+      <button
+        onClick={() => {
+          setdat({ day: "sun", inc: 850 });
+        }}
+      >
+        Two...
+      </button>
       <br />
       <br />
       <button>Three...</button> <br />
@@ -33,12 +39,12 @@ function Testing() {
 
 const inf = [
   { day: "mon", inc: 80 },
-  { day: "tues", inc: 90 },
-  { day: "wed", inc: 101 },
-  { day: "thur", inc: 112 },
-  { day: "fri", inc: 121 },
-  { day: "sat", inc: 141 },
-  { day: "sun", inc: 148 },
+  //   { day: "tues", inc: 90 },
+  //   { day: "wed", inc: 101 },
+  //   { day: "thur", inc: 112 },
+  //   { day: "fri", inc: 121 },
+  //   { day: "sat", inc: 141 },
+  //   { day: "sun", inc: 148 },
 ];
 
 export default Testing;
