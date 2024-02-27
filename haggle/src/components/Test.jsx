@@ -26,7 +26,14 @@ function Testing() {
       </button>
       <br />
       <br />
-      <button>Three...</button> <br />
+      <button
+        onClick={() => {
+          setdat({ day: "sat", inc: 1500 });
+        }}
+      >
+        Three...
+      </button>{" "}
+      <br />
       <br />
       <div>
         <h3>{dat.day}</h3> <br />
