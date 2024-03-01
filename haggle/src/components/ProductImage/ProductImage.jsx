@@ -11,11 +11,13 @@ function ProdImg() {
   // const [offersubmit, setoffersubmit] = useState(0);
   const [UserOffer, setUserOffer] = useState(0);
   const [counterOffer, setcounterOffer] = useState();
+
   // const [disco, setdisco] = useState(discounts);
-  const [Offercount, setOffercount] = useState(0); //
+  /////// const [Offercount, setOffercount] = useState(0); //////
+
   const [btnTitle, setbtnTitle] = useState(true);
 
-  // const [Offercount, dispatch] = useReducer(offerReducer, 0); //
+  const [Offercount, dispatch] = useReducer(offerReducer, 0); //
 
   // const NumberOfDiscounts = [];
 
@@ -28,21 +30,21 @@ function ProdImg() {
   // ];
   const TotalOfferCount = 5;
 
-  // function changeOffercount() {
-  //   dispatch({
-  //     type: "changedOffer",
-  //   });
-  // }
+  function changeOffercount() {
+    dispatch({
+      type: "changedOffer",
+    });
+  }
 
-  function offerReducer(OfferCount, action) {
+  function offerReducer(Offercount, action) {
     if (action.type === "changedOffer") {
       return Offercount + 1;
     }
   }
 
-  function changeOffercount() {
-    setOffercount(Offercount + 1);
-  }
+  // function changeOffercount() {
+  //   setOffercount(Offercount + 1);
+  // }
 
   function handleBtnTitle() {
     setbtnTitle(!btnTitle);
@@ -105,7 +107,7 @@ function ProdImg() {
     // }
     if (Offer < asking - DiscountFive && Offer !== asking) {
       // setcounterOffer(OfferFive);
-     changeCounterOffer(OfferFive);
+      changeCounterOffer(OfferFive);
       changeOffercount();
     } else if (Offer < asking - DiscountTen && Offer !== asking) {
       // setcounterOffer(OfferTen);
@@ -138,21 +140,24 @@ function ProdImg() {
       alert("Your Offer matches the asking price.");
       changeCounterOffer(asking);
       changeOffercount();
-      setOffercount(Offercount);
+      changeOffercount();
+      // setOffercount(Offercount); ///////
     } else if (Offer > asking) {
       alert(
         "Your offer is above the Asking Price. Please make an offer equal or below the Asking Price"
       );
 
       changeCounterOffer(asking);
-      setOffercount(Offercount);
+      changeOffercount();
+      // setOffercount(Offercount); /////////
     }
 
     if (Offer <= 0) {
       // You could also use the While statement
       alert("Offer cannot be zero or less than zero");
       changeCounterOffer(null);
-      setOffercount(Offercount);
+      changeOffercount();
+      // setOffercount(Offercount); /////
       setUserOffer(0);
     }
   }
