@@ -1,5 +1,6 @@
 // Component for Creating Product Detail Inputs/parameters //
 import { useState } from "react";
+import { useReducer } from "react"; // Use instead of useState
 
 export default function NewProduct() {
   // const details = {
@@ -7,6 +8,26 @@ export default function NewProduct() {
   //   specs: "HP Laptop",
   //   quiz: "Follow Me",
   // };
+
+  const [speci, dispatch] = useReducer(specsReducer, {});
+
+  function createProduct() {
+    dispatch({
+      type: "addedProduct",
+    });
+  }
+
+  function specsReducer(speci, action) {
+    if (action.type == "addedProduct") {
+      return {
+        ...speci,
+        description: "Iphone",
+        specs: "15 proMax",
+        quiz: "Things Fall Apart",
+      };
+    }
+  }
+
   const [specify, setSpecify] = useState({
     description: "Computer",
     specs: "HP Laptop",
