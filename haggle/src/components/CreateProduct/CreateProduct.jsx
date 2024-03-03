@@ -9,15 +9,17 @@ export default function NewProduct() {
   //   quiz: "Follow Me",
   // };
 
-  const [speci, dispatch] = useReducer(specsReducer, {});
+  const [speci, dispatch] = useReducer(specsReducer, {}); // -- 1 -- //
 
   function createProduct() {
+    // -- 2 -- //
     dispatch({
       type: "addedProduct",
     });
   }
 
   function specsReducer(speci, action) {
+    // -- 3 -- //
     if (action.type == "addedProduct") {
       return {
         ...speci,

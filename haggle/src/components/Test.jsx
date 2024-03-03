@@ -1,43 +1,53 @@
 import { useState } from "react";
+import { useReducer } from "react";
 
 function Testing() {
-  const [dat, setdat] = useState([]);
+  //   const [dat, setdat] = useState([]);
+  const [data, dispatch] = useReducer(dataReducer, []);
 
-  function changeDat() {
-    setdat({ day: "fri", inc: 501 });
-
-    // setdat(
-    //   dat.map((d) => {
-    //     return <li>{d}</li>;
-    //   })
-    // );
+  function changeData() {
+    dispatch({
+      type: "changed",
+    });
   }
+
+  function dataReducer(data, action) {
+    if (action.type === "changed") {
+      return { day: "Thursday", inc: 1500 };
+    }
+  }
+
+  //   function changeDat() {
+  //     setdat({ day: "fri", inc: 501 });
+
+  // setdat(
+  //   dat.map((d) => {
+  //     return <li>{d}</li>;
+  //   })
+  // );
+  //}
   return (
     <div>
-      <button onClick={changeDat}>One...</button>
+      <button onClick={changeData}>One...</button>
       <br />
       <br />
-      <button
+      {/* <button
         onClick={() => {
           setdat({ day: "sun", inc: 850 });
-        }}
-      >
-        Two...
-      </button>
+        }} */}
+      <button onClick={changeData}>Two...</button>
       <br />
       <br />
-      <button
+      {/* <button
         onClick={() => {
           setdat({ day: "sat", inc: 1500 });
         }}
-      >
-        Three...
-      </button>{" "}
-      <br />
+      > */}
+      <button onClick={changeData}>Three...</button> <br />
       <br />
       <div>
-        <h3>{dat.day}</h3> <br />
-        <h3>{dat.inc}</h3> <br />
+        <h3>{data.day}</h3> <br />
+        <h3>{data.inc}</h3> <br />
         {/* <h3>{dat.sat}</h3> */}
       </div>
     </div>

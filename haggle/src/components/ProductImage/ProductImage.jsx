@@ -17,7 +17,7 @@ function ProdImg() {
 
   const [btnTitle, setbtnTitle] = useState(true);
 
-  const [Offercount, dispatch] = useReducer(offerReducer, 0); //
+  const [Offercount, dispatch] = useReducer(offerReducer, 0); // -- 1 -- //
 
   // const NumberOfDiscounts = [];
 
@@ -31,12 +31,14 @@ function ProdImg() {
   const TotalOfferCount = 5;
 
   function changeOffercount() {
+    // -- 2 -- //
     dispatch({
       type: "changedOffer",
     });
   }
 
   function offerReducer(Offercount, action) {
+    // -- 3 -- //
     if (action.type === "changedOffer") {
       return Offercount + 1;
     }
