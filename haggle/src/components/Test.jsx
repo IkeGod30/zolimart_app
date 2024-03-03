@@ -11,11 +11,11 @@ function Testing() {
     });
   }
 
-  function dataReducer(data, action) {
-    if (action.type === "changed") {
-      return { day: "Thursday", inc: 1500 };
-    }
-  }
+  //   function dataReducer(data, action) {
+  //     if (action.type === "changed") {
+  //       return { day: "Thursday", inc: 1500 };
+  //     }
+  //   }
 
   //   function changeDat() {
   //     setdat({ day: "fri", inc: 501 });
@@ -52,6 +52,13 @@ function Testing() {
       </div>
     </div>
   );
+}
+
+function dataReducer(data, action) {
+  switch (action.type) {
+    case "changed":
+      return { day: "Thursday", inc: 1500 };
+  }
 }
 
 const inf = [
