@@ -11,6 +11,18 @@ function Testing() {
     });
   }
 
+  function changeT() {
+    dispatch({
+      type: "changeTwo",
+    });
+  }
+
+  function changeTh() {
+    dispatch({
+      type: "changeThree",
+    });
+  }
+
   //   function dataReducer(data, action) {
   //     if (action.type === "changed") {
   //       return { day: "Thursday", inc: 1500 };
@@ -35,7 +47,7 @@ function Testing() {
         onClick={() => {
           setdat({ day: "sun", inc: 850 });
         }} */}
-      <button onClick={changeData}>Two...</button>
+      <button onClick={changeT}>Two...</button>
       <br />
       <br />
       {/* <button
@@ -43,7 +55,7 @@ function Testing() {
           setdat({ day: "sat", inc: 1500 });
         }}
       > */}
-      <button onClick={changeData}>Three...</button> <br />
+      <button onClick={changeTh}>Three...</button> <br />
       <br />
       <div>
         <h3>{data.day}</h3> <br />
@@ -56,8 +68,15 @@ function Testing() {
 
 function dataReducer(data, action) {
   switch (action.type) {
-    case "changed":
+    case "changed": {
       return { day: "Thursday", inc: 1500 };
+    }
+    case "changeTwo": {
+      return { day: "Friday", inc: 2000 };
+    }
+    case "changeThree": {
+      return { day: "Saturday", inc: 2500 };
+    }
   }
 }
 
