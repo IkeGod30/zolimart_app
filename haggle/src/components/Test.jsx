@@ -58,9 +58,9 @@ function Testing() {
       <button onClick={changeTh}>Three...</button> <br />
       <br />
       <div>
-        <h3>{data.day}</h3> <br />
-        <h3>{data.inc}</h3> <br />
-        {/* <h3>{dat.sat}</h3> */}
+        <h3 style={{ color: "orange" }}>{data.day}</h3> <br />
+        <h3 style={{ color: "blue" }}>{data.inc}</h3> <br />
+        <h3 style={{ color: "green" }}>{data.status}</h3>
       </div>
     </div>
   );
@@ -69,19 +69,19 @@ function Testing() {
 function dataReducer(data, action) {
   switch (action.type) {
     case "changed": {
-      return { day: "Thursday", inc: 1500 };
+      return { day: "Thursday", inc: 1500, status: "N/A" };
     }
     case "changeTwo": {
-      return { day: "Friday", inc: 2000 };
+      return { day: "Friday", inc: 2000, status: "OFF" };
     }
     case "changeThree": {
-      return { day: "Saturday", inc: 2500 };
+      return { day: "Saturday", inc: 2500, status: "ON" };
     }
   }
 }
 
 const inf = [
-  { day: "mon", inc: 80 },
+  { day: "mon", inc: 80, status: "out" },
   //   { day: "tues", inc: 90 },
   //   { day: "wed", inc: 101 },
   //   { day: "thur", inc: 112 },
