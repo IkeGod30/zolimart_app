@@ -39,8 +39,10 @@ function ProdImg() {
 
   function offerReducer(Offercount, action) {
     // -- 3 -- //
-    if (action.type === "changedOffer") {
-      return Offercount + 1;
+    switch (action.type) {
+      case "changedOffer": {
+        return Offercount + 1;
+      }
     }
   }
 
