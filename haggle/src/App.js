@@ -1,4 +1,5 @@
 import Testing from "./components/Test"; // Code Test and REMOVE
+import Exp from "./components/Experiment";
 
 import ProductComp from './components/Product/Product';
 import './App.css';
@@ -25,7 +26,8 @@ function App() {
 
       {/* <BlogText /> */}
 
-      <Testing />
+      {/* <Testing /> */}
+      {/* <Exp /> */}
    
     </div>
   );

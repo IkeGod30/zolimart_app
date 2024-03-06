@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { useReducer } from "react";
 
 function Testing() {
-  //   const [dat, setdat] = useState([]);
   const [data, dispatch] = useReducer(dataReducer, inf);
 
   function changeData() {
