@@ -67,7 +67,8 @@ function Testing() {
 function dataReducer(data, action) {
   switch (action.type) {
     case "changed": {
-      return { day: "Thursday", inc: 1500, status: "N/A" };
+      //   return { day: "Thursday", inc: 1500, status: "N/A" };
+      return { ...data, inc: 1500, status: "N/A" };
     }
     case "changeTwo": {
       return { day: "Friday", inc: 2000, status: "OFF" };
