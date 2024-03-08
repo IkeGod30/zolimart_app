@@ -144,7 +144,6 @@ function ProdImg() {
       alert("Your Offer matches the asking price.");
       changeCounterOffer(asking);
       changeOffercount();
-      changeOffercount();
       // setOffercount(Offercount); ///////
     } else if (Offer > asking) {
       alert(

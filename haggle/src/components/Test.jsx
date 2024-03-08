@@ -76,6 +76,8 @@ function dataReducer(data, action) {
     case "changeThree": {
       return { day: "Saturday", inc: 2500, status: "ON" };
     }
+    default:
+      return inf;
   }
 }
 
