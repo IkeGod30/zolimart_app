@@ -21,21 +21,6 @@ function Testing() {
     });
   }
 
-  //   function dataReducer(data, action) {
-  //     if (action.type === "changed") {
-  //       return { day: "Thursday", inc: 1500 };
-  //     }
-  //   }
-
-  //   function changeDat() {
-  //     setdat({ day: "fri", inc: 501 });
-
-  // setdat(
-  //   dat.map((d) => {
-  //     return <li>{d}</li>;
-  //   })
-  // );
-  //}
   return (
     <div>
       <button onClick={changeData}>One...</button>
