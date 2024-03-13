@@ -68,12 +68,12 @@ function dataReducer(data, action) {
 
 const inf = [
   { day: "mon", inc: 80, status: "out" },
-  //   { day: "tues", inc: 90 },
-  //   { day: "wed", inc: 101 },
-  //   { day: "thur", inc: 112 },
-  //   { day: "fri", inc: 121 },
-  //   { day: "sat", inc: 141 },
-  //   { day: "sun", inc: 148 },
+  { day: "tues", inc: 90 },
+  { day: "wed", inc: 101 },
+  { day: "thur", inc: 112 },
+  { day: "fri", inc: 121 },
+  { day: "sat", inc: 141 },
+  { day: "sun", inc: 148 },
 ];
 
 export default Testing;
