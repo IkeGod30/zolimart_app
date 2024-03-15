@@ -114,7 +114,7 @@ function ProdImg() {
       // setcounterOffer(OfferFive);
       changeCounterOffer(OfferFive);
       changeOffercount();
-    } else if (Offer < asking - DiscountTen && Offer !== asking) {
+    } else if (Offer < asking - DiscountTen && Offer < 25 && Offer !== asking) {
       // setcounterOffer(OfferTen);
       changeCounterOffer(OfferTen);
       changeOffercount();
