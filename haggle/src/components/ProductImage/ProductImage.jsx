@@ -136,7 +136,7 @@ function ProdImg() {
       changeCounterOffer(OfferThirty);
       changeOffercount();
     } else if (Offer > asking - DiscountForty && Offer !== asking) {
-      // Check figure
+      // Check returned value
       changeCounterOffer(OfferForty);
       changeOffercount();
     }
