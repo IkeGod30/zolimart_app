@@ -49,6 +49,8 @@ function Testing() {
   );
 }
 
+export default Testing;
+
 function dataReducer(data, action) {
   switch (action.type) {
     case "changed": {
@@ -75,5 +77,3 @@ const inf = [
   { day: "sat", inc: 141 },
   { day: "sun", inc: 148 },
 ];
-
-export default Testing;
