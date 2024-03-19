@@ -69,7 +69,7 @@ function dataReducer(data, action) {
 }
 
 const inf = [
-  { day: "mon", inc: 80, status: "out" },
+  { day: "mon", inc: 184, status: "out" },
   { day: "tue", inc: 90, status: "in" },
   { day: "wed", inc: 101, status: "N/A" },
   { day: "thur", inc: 112, status: "out" },
