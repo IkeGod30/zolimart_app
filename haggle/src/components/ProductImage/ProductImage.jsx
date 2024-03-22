@@ -109,8 +109,8 @@ function ProdImg() {
     // for (Offer = 30; Offer++; ) {
     //   alert("First Counter");
     // }
-    // if (Offer < asking - DiscountFive && Offer !== asking) {
-    if (Offer < 15) {
+    if (Offer < asking - DiscountFive && Offer < 15 && Offer !== asking) {
+      // if (Offer < 15) {
       // setcounterOffer(OfferFive);
       changeCounterOffer(OfferFive);
       changeOffercount();
@@ -127,7 +127,11 @@ function ProdImg() {
       // }, 5000);
 
       // alert("Congratulations! Your Offer has been accepted");
-    } else if (Offer > asking - DiscountTwenty && Offer !== asking) {
+    } else if (
+      Offer < asking - DiscountTwenty &&
+      Offer < 30 &&
+      Offer !== asking
+    ) {
       // Check figure
 
       changeCounterOffer(OfferTwenty);
