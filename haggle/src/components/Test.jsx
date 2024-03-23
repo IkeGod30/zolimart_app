@@ -72,8 +72,8 @@ const inf = [
   { day: "mon", inc: 184, status: "out" },
   { day: "tue", inc: 122.52, status: "in" },
   { day: "wed", inc: 49.51, status: "N/A" },
-  { day: "thur", inc: 112, status: "out" },
-  { day: "fri", inc: 121, status: "in" },
+  { day: "thur", inc: 123, status: "out" },
+  { day: "fri", inc: 141.75, status: "in" },
   { day: "sat", inc: 141, status: "out" },
   { day: "sun", inc: 148, status: "N/A" },
 ];
