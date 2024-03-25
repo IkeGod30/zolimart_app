@@ -19,15 +19,6 @@ function ProdImg() {
 
   const [Offercount, dispatch] = useReducer(offerReducer, 0); // -- 1 -- //
 
-  // const NumberOfDiscounts = [];
-
-  // const discounts = [
-  //   { ind: 0, disc: OfferFive },
-  //   { ind: 1, disc: OfferTen },
-  //   { ind: 2, disc: OfferTwenty },
-  //   { ind: 3, disc: OfferThirty },
-  //   { ind: 4, disc: OfferForty },
-  // ];
   const TotalOfferCount = 5;
 
   function changeOffercount() {
