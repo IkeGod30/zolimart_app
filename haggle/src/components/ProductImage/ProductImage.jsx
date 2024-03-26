@@ -100,8 +100,8 @@ function ProdImg() {
     // for (Offer = 30; Offer++; ) {
     //   alert("First Counter");
     // }
-    if (Offer < asking - DiscountFive && Offer < 15 && Offer !== asking) {
-      // if (Offer < 15) {
+    // if (Offer < asking - DiscountFive && Offer < 15 && Offer !== asking) {
+    if (Offer <= asking * 0.3) {
       // setcounterOffer(OfferFive);
       changeCounterOffer(OfferFive);
       changeOffercount();
