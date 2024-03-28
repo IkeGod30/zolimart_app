@@ -136,6 +136,13 @@ function ProdImg() {
       changeOffercount();
     }
 
+    // ###################################### The Loop Alternative ///
+    for (Offer = 1; Offer < 15; Offer++) {
+      // alert(Offer);
+      changeCounterOffer(100);
+    }
+    // ###################################### //
+
     if (Offer == asking) {
       alert("Your Offer matches the asking price.");
       changeCounterOffer(asking);
