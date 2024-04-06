@@ -100,13 +100,34 @@ function ProdImg() {
     // for (Offer = 30; Offer++; ) {
     //   alert("First Counter");
     // }
+
+    // switch (Offer) {
+    //   case asking - (asking / 100) * 5: {
+    //     changeCounterOffer(OfferFive);
+    //     changeOffercount();
+    //   }
+    //   case asking - (asking / 100) * 10: {
+    //     changeCounterOffer(OfferTen);
+    //     changeOffercount();
+    //   }
+    //   case asking - (asking / 100) * 20: {
+    //     changeCounterOffer(OfferTwenty);
+    //     changeOffercount();
+    //   }
+    //   case asking - (asking / 100) * 30: {
+    //     changeCounterOffer(OfferThirty);
+    //     changeOffercount();
+    //   }
+    // }
+
     // if (Offer < asking - DiscountFive && Offer < 15 && Offer !== asking) {
     // = if (Offer < 45 - 2.25 AND Offer < 15 AND Offer is not 45)
-    if (Offer <= asking * 0.3) {
+    if (Offer <= asking * 0.3 && Offer !== asking) {
       // setcounterOffer(OfferFive);
       changeCounterOffer(OfferFive);
       changeOffercount();
     } else if (Offer < asking - DiscountTen && Offer < 25 && Offer !== asking) {
+      // ... else if (Offer < asking - DiscountTen && Offer < 25 && Offer !== asking)
       // setcounterOffer(OfferTen);
       changeCounterOffer(OfferTen);
       changeOffercount();

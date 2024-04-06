@@ -30,6 +30,8 @@ export default function NewProduct() {
     }
   }
 
+ 
+
   const [specify, setSpecify] = useState({
     description: "Computer",
     specs: "HP Laptop",
