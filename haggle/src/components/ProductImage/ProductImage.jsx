@@ -89,32 +89,22 @@ function ProdImg() {
     // const LAST_PRICE = askingPrice * 0.15;
     // let Offered_price = e.target.value;
 
-    // switch (Offer) {
-    //   case 40:
-    //     alert("Offer accepted!");
-    //   case 20:
-    //     alert("Offer NOT accepted");
-
-    // default:
-    //   return alert(asking);
-    // for (Offer = 30; Offer++; ) {
-    //   alert("First Counter");
-    // }
+    //............................//
 
     // switch (Offer) {
-    //   case asking - (asking / 100) * 5: {
+    //   case (asking / 100) * 70: {
     //     changeCounterOffer(OfferFive);
     //     changeOffercount();
     //   }
-    //   case asking - (asking / 100) * 10: {
+    //   case (asking / 100) * 80: {
     //     changeCounterOffer(OfferTen);
     //     changeOffercount();
     //   }
-    //   case asking - (asking / 100) * 20: {
+    //   case (asking / 100) * 60: {
     //     changeCounterOffer(OfferTwenty);
     //     changeOffercount();
     //   }
-    //   case asking - (asking / 100) * 30: {
+    //   case (asking / 100) * 90: {
     //     changeCounterOffer(OfferThirty);
     //     changeOffercount();
     //   }
