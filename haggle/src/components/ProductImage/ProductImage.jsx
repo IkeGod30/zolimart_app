@@ -150,12 +150,10 @@ function ProdImg() {
 
     // ###################################### The Loop Alternative ///
     // for (Offer = 1; Offer < 15; Offer++) {
-    //   // alert(Offer);
     //   changeCounterOffer(100);
     // }
 
     // for (Offer = 15; Offer < 25; Offer++) {
-    //   alert(Offer);
     //   changeCounterOffer(150);
     // }
     // ###################################### //
