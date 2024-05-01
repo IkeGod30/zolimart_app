@@ -72,7 +72,7 @@ function ProdImg() {
 
   const asking = 45; // Refactor in state
   let Offer = UserOffer;
-  const DiscountFive = (asking / 100) * 5; // 2.25
+  const DiscountFive = (asking / 100) * 5; // 2.25 // asking * 0.05 //
   const DiscountTen = (asking / 100) * 10; // 4.5
   const DiscountTwenty = (asking / 100) * 20; // 9
   const DiscountThirty = (asking / 100) * 30; // 13.5 // Unused
@@ -92,7 +92,7 @@ function ProdImg() {
     //............................//
 
     // switch (Offer) {
-    //   case (asking / 100) * 70: {
+    //   case (asking / 100) * 70: { // (asking * 0.70) //
     //     changeCounterOffer(OfferFive);
     //     changeOffercount();
     //   }
