@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to ZoliMart</h1>
-      <h2>The Bargain Portal</h2>
+      <h2>The Bargain App</h2>
 
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
       <ProductComp />
