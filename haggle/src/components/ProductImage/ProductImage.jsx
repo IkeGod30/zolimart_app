@@ -78,7 +78,7 @@ function ProdImg() {
   const DiscountThirty = (asking / 100) * 30; // 13.5 // Unused
   const DiscountForty = (asking / 100) * 40; // 18  //Unused
 
-  const OfferFive = asking - DiscountFive; // 42.75
+  const OfferFive = asking * 0.89; // 42.75
   const OfferTen = asking - DiscountTen; // 40.5
   const OfferTwenty = asking - DiscountTwenty; // 36
   const OfferThirty = asking - DiscountThirty; // 31.5 // Unused
