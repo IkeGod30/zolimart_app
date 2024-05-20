@@ -72,17 +72,24 @@ function ProdImg() {
 
   const asking = 45; // Refactor in state
   let Offer = UserOffer;
-  const DiscountFive = (asking / 100) * 5; // 2.25 // asking * 0.05 //
-  const DiscountTen = (asking / 100) * 10; // 4.5
-  const DiscountTwenty = (asking / 100) * 20; // 9
-  const DiscountThirty = (asking / 100) * 30; // 13.5 // Unused
-  const DiscountForty = (asking / 100) * 40; // 18  //Unused
 
-  const OfferFive = asking * 0.89; // 42.75
-  const OfferTen = asking - DiscountTen; // 40.5
-  const OfferTwenty = asking - DiscountTwenty; // 36
-  const OfferThirty = asking - DiscountThirty; // 31.5 // Unused
-  const OfferForty = asking - DiscountForty; // 27  // Unused
+  // Remove the five lines below
+  //.. const DiscountFive = (asking / 100) * 5; // 2.25 // asking * 0.05 //
+  //.. const DiscountTen = (asking / 100) * 10; // 4.5
+  //.. const DiscountTwenty = (asking / 100) * 20; // 9
+  //.. const DiscountThirty = (asking / 100) * 30; // 13.5 // Unused
+  //.. const DiscountForty = (asking / 100) * 40; // 18  //Unused
+
+  const OfferFive = asking * 0.95; // 40.05 // Use as template for rest //
+  const OfferTen = asking * 0.9;
+  const OfferTwenty = asking * 0.8;
+  const OfferThirty = asking * 0.7;
+  const OfferForty = asking * 0.6;
+
+  // const OfferTen = asking - DiscountTen; // 40.5
+  // const OfferTwenty = asking - DiscountTwenty; // 36
+  // const OfferThirty = asking - DiscountThirty; // 31.5 // Unused
+  //  const OfferForty = asking - DiscountForty; // 27  // Unused
 
   function OfferPrice() {
     // const Offer = 0;
@@ -116,7 +123,7 @@ function ProdImg() {
       // setcounterOffer(OfferFive);
       changeCounterOffer(OfferFive);
       changeOffercount();
-    } else if (Offer < asking - DiscountTen && Offer < 25 && Offer !== asking) {
+    } else if (Offer < asking * 0.4 && Offer < 25 && Offer !== asking) {
       // ... else if (Offer < asking - DiscountTen && Offer < 25 && Offer !== asking)
       // setcounterOffer(OfferTen);
       changeCounterOffer(OfferTen);
@@ -130,19 +137,15 @@ function ProdImg() {
       // }, 5000);
 
       // alert("Congratulations! Your Offer has been accepted");
-    } else if (
-      Offer < asking - DiscountTwenty &&
-      Offer < 30 &&
-      Offer !== asking
-    ) {
+    } else if (Offer < asking * 0.5 && Offer < 30 && Offer !== asking) {
       // Check figure
 
       changeCounterOffer(OfferTwenty);
       changeOffercount();
-    } else if (Offer > asking - DiscountThirty && Offer !== asking) {
+    } else if (Offer > asking * 0.6 && Offer !== asking) {
       changeCounterOffer(OfferThirty);
       changeOffercount();
-    } else if (Offer > asking - DiscountForty && Offer !== asking) {
+    } else if (Offer > asking * 0.7 && Offer !== asking) {
       // Check returned value
       changeCounterOffer(OfferForty);
       changeOffercount();
