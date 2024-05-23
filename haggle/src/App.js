@@ -18,9 +18,9 @@ function App() {
       {/* <NewProduct /> */}
       
      
-      {/* <ProductComp />
       <ProductComp />
-      <ProductComp /> */}
+      <ProductComp />
+      {/* <ProductComp /> */}
       </div>
 <br /><br />
 
