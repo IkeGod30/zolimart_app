@@ -2,6 +2,8 @@ import "./Product.css";
 import ProdImg from "../ProductImage/ProductImage";
 // import BargainPrice from "../Bargain/Bargain";
 
+
+
 function ProductComp() {
   return (
     <div>
