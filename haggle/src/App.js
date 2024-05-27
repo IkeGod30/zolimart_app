@@ -22,7 +22,6 @@ function App() {
      
       <ProductComp />
       <ProductComp />
-      {/* <ProductComp /> */}
       </div>
 <br /><br />
 
