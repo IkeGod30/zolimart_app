@@ -5,10 +5,13 @@ import { useReducer } from "react"; // Use for Reducer function in place of useS
 import OfferCount from "../OfferCount/OfferCount";
 import ProductImg from "../ProductImg/ProductImg";
 import NewProduct from "../CreateProduct/CreateProduct";
+
 import { changeOffer } from "../features/bargain/bargainSlice";
-import { useSelector, useDispatch } from "react-redux";
+// ...import { useSelector, useDispatch } from "react-redux";
 
 function ProdImg() {
+  //..const Off = useSelector((state) => state.bargain.value);
+  //.. const dispatch = useDispatch();
   // const [counterOff, setcounterOff] = useState(0);
   // const [offersubmit, setoffersubmit] = useState(0);
   const [UserOffer, setUserOffer] = useState(0);
@@ -94,8 +97,6 @@ function ProdImg() {
   //  const OfferForty = asking - DiscountForty; // 27  // Unused
 
   function OfferPrice() {
-    const Off = useSelector((state) => state.bargain.value);
-    const dispatch = useDispatch();
     // const Offer = 0;
     // const LAST_PRICE = askingPrice * 0.15;
     // let Offered_price = e.target.value;
