@@ -5,6 +5,7 @@ import { useReducer } from "react"; // Use for Reducer function in place of useS
 import OfferCount from "../OfferCount/OfferCount";
 import ProductImg from "../ProductImg/ProductImg";
 import NewProduct from "../CreateProduct/CreateProduct";
+import { Backdrop, CircularProgress } from "@mui/material";
 
 import { changeOffer } from "../features/bargain/bargainSlice";
 // ...import { useSelector, useDispatch } from "react-redux";
@@ -255,6 +256,9 @@ function ProdImg() {
             <button onClick={OfferPrice} className="btn btn-primary">
               Make Offer
             </button>
+
+            <CircularProgress variant="determinate" value={60} />
+
             {/* <button onClick={handleBtnTitle} className="btn btn-primary">
               {btnTitle ? "Make Offer" : "Accept Offer"}
             </button> */}
@@ -265,6 +269,7 @@ function ProdImg() {
               placeholder="Type your amount"
               style={{ width: "150px", height: "35px" }}
             />
+
             {/* <button className="btn btn-primary">Checkout</button> */}
           </div>
           <hr />
