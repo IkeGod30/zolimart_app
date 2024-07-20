@@ -1,8 +1,6 @@
 import "./Product.css";
-import ProdImg from "../ProductImage/ProductImage";
+import ProdImg from "../ProductImage/ProductImage.tsx";
 // import BargainPrice from "../Bargain/Bargain";
-
-
 
 function ProductComp() {
   return (

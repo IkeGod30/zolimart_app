@@ -1,5 +1,17 @@
 import { useReducer } from "react";
 
+// class People {
+//   constructor(race, country) {
+//     this.race = race
+//     this.country = country
+//   }
+  
+// }
+
+// const Linda = new People("Black", "Nigeria")
+
+// console.log(Linda.race, Linda.country)
+
 function Testing() {
   const [data, dispatch] = useReducer(dataReducer, inf);
 

@@ -1,4 +1,4 @@
-import Testing from "./components/Test"; // Code Test and REMOVE
+import Testing from "./components/Test.jsx"; // Code Test and REMOVE
 import Exp from "./components/Experiment";
 
 import Drawer from './components/Navigation/Drawer'

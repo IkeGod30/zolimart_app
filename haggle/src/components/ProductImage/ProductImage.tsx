@@ -7,7 +7,7 @@ import ProductImg from "../ProductImg/ProductImg";
 import NewProduct from "../CreateProduct/CreateProduct";
 import { Backdrop, CircularProgress } from "@mui/material";
 
-import { changeOffer } from "../features/bargain/bargainSlice";
+import { changeOfferi } from "../features/bargain/bargainSlice";
 // ...import { useSelector, useDispatch } from "react-redux";
 
 function ProdImg() {
@@ -25,7 +25,7 @@ function ProdImg() {
 
   const [Offercount, dispatch] = useReducer(offerReducer, 0); // -- 1 -- //
 
-  const TotalOfferCount = 5;
+  const TotalOfferCount : number = 5;
 
   function changeOffercount() {
     // -- 2 -- //
