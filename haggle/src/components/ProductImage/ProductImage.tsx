@@ -10,7 +10,7 @@ import { Backdrop, CircularProgress } from "@mui/material";
 import { changeOfferi } from "../features/bargain/bargainSlice";
 // ...import { useSelector, useDispatch } from "react-redux";
 
-function ProdImg() {
+const ProdImg : React.FC = ()=> {
   //..const Off = useSelector((state) => state.bargain.value);
   //.. const dispatch = useDispatch();
   // const [counterOff, setcounterOff] = useState(0);
