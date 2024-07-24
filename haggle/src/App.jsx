@@ -1,15 +1,15 @@
 import Testing from "./components/Test.jsx"; // Code Test and REMOVE
-import Exp from "./components/Experiment";
+import Exp from "./components/Experiment.jsx";
 
-import Drawer from './components/Navigation/Drawer'
+import Drawer from './components/Navigation/Drawer.jsx'
 
-import ProductComp from './components/Product/Product';
-import CircularIndeterminate from "./components/Progress"; // MUI component
+import ProductComp from './components/Product/Product.jsx';
+import CircularIndeterminate from "./components/Progress.jsx"; // MUI component
 import './App.css';
-import BlogText from './components/Blog/Blog';
-import NewProduct from './components/CreateProduct/CreateProduct';
+import BlogText from './components/Blog/Blog.jsx';
+import NewProduct from './components/CreateProduct/CreateProduct.jsx';
 
-function App() {
+const App = ()=> {
   return (
     <div className="App">
       {/* <h1>Welcome to ZoliMart</h1> */}
