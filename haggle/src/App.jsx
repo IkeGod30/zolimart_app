@@ -39,8 +39,6 @@ const App = () => {
             </ul>
           </section>
         </Child>
-
-        {/* <NewProduct /> */}
       </div>
       <br />
       <br />
