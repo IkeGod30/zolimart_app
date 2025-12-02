@@ -15,7 +15,7 @@ const App = () => {
     <div className="App">
       {/* <h1>Welcome to ZoliMart</h1> */}
       {/* <h2>The Bargain App</h2> */}
-      <Drawer />
+      {/* <Drawer /> */}
       {/* <CircularIndeterminate /> */}
 
       <div

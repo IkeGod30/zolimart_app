@@ -125,11 +125,11 @@ const ProdImg : React.FC = ()=> {
 
     // if (Offer < asking - DiscountFive && Offer < 15 && Offer !== asking) {
     // = if (Offer < 45 - 2.25 AND Offer < 15 AND Offer is not 45)
-    if (Offer <= asking * 0.3 && Offer !== asking) {
+    if ((Offer <= asking * 0.3) && (Offer !== asking)) { // Enclose each condition in its own bracket
       // setcounterOffer(OfferFive);
       changeCounterOffer(OfferFive);
       changeOffercount();
-    } else if (Offer < asking * 0.4 && Offer < 25 && Offer !== asking) {
+    } else if ((Offer < asking * 0.4) && (Offer < 25) && (Offer !== asking)) {
       // ... else if (Offer < asking - DiscountTen && Offer < 25 && Offer !== asking)
       // setcounterOffer(OfferTen);
       changeCounterOffer(OfferTen);
@@ -148,10 +148,10 @@ const ProdImg : React.FC = ()=> {
 
       changeCounterOffer(OfferTwenty);
       changeOffercount();
-    } else if (Offer > asking * 0.6 && Offer !== asking) {
+    } else if (Offer > (asking * 0.6) && Offer !== asking) {
       changeCounterOffer(OfferThirty);
       changeOffercount();
-    } else if (Offer > asking * 0.7 && Offer !== asking) {
+    } else if (Offer > (asking * 0.7) && Offer !== asking) {
       // Check returned value
       changeCounterOffer(OfferForty);
       changeOffercount();
