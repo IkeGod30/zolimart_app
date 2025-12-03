@@ -86,11 +86,11 @@ const ProdImg : React.FC = ()=> {
   //.. const DiscountThirty = (asking / 100) * 30; // 13.5 // Unused
   //.. const DiscountForty = (asking / 100) * 40; // 18  //Unused
 
-  const OfferFive = asking * 0.95; // 40.05 // Use as template for rest //
-  const OfferTen = asking * 0.9;
-  const OfferTwenty = asking * 0.8;
-  const OfferThirty = asking * 0.7;
-  const OfferForty = asking * 0.6;
+  const OfferFive = asking * 0.95; // $42.75 // Use as template for rest //
+  const OfferTen = asking * 0.9; // $40.5
+  const OfferTwenty = asking * 0.8; // $36
+  const OfferThirty = asking * 0.7; // $31.5
+  const OfferForty = asking * 0.6; // $27
 
   // const OfferTen = asking - DiscountTen; // 40.5
   // const OfferTwenty = asking - DiscountTwenty; // 36
@@ -257,7 +257,7 @@ const ProdImg : React.FC = ()=> {
               Make Offer
             </button>
 
-            <CircularProgress variant="determinate" value={60} />
+            {/* <CircularProgress variant="determinate" value={60} /> */}
 
             {/* <button onClick={handleBtnTitle} className="btn btn-primary">
               {btnTitle ? "Make Offer" : "Accept Offer"}
