@@ -43,10 +43,10 @@ const App = () => {
       <br />
       <br />
 
-      {/* <BlogText /> */}
+      <BlogText />
 
-      {/* <Testing /> */}
-      {/* <Exp /> */}
+      <Testing />
+      <Exp />
     </div>
   );
 };

@@ -22,6 +22,7 @@ function infoReducer(info, action) {
     case record.id: {
       return { id: "six", ind: "sept", item: "vin" };
     }
+    default:
   }
 }
 const record = { id: "un", ind: "duo", item: "troi" };
