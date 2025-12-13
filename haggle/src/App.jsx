@@ -1,7 +1,7 @@
 import Testing from "./components/Test.jsx"; // Code Test and REMOVE
 import Exp from "./components/Experiment.jsx";
 
-import Drawer from "./components/Navigation/Drawer.jsx";
+// import Drawer from "./components/Navigation/Drawer.jsx";
 
 import ProductComp from "./components/Product/Product.jsx";
 import CircularIndeterminate from "./components/Progress.jsx"; // MUI component
