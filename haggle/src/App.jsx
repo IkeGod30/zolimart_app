@@ -28,7 +28,7 @@ const App = () => {
         <ProductComp />
         <ProductComp />
 
-        <Child>
+        {/* <Child>
           <section>
             <ul>
               <h5>Skills</h5>
@@ -38,15 +38,15 @@ const App = () => {
               <li>Next Js</li>
             </ul>
           </section>
-        </Child>
+        </Child> */}
       </div>
       <br />
       <br />
 
-      <BlogText />
+      {/* <BlogText /> */}
 
-      <Testing />
-      <Exp />
+      {/* <Testing /> */}
+      {/* <Exp /> */}
     </div>
   );
 };
