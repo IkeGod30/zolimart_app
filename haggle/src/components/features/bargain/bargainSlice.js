@@ -7,7 +7,7 @@ export const bargainSlice = createSlice({
     },
     reducers: {
         changeOfferi: (state) => {
-            state.value += 1
+            state.value += 1 // Please check for logic error
         },
 
     },
