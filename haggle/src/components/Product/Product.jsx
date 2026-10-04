@@ -1,13 +1,14 @@
-import "./Product.css";
+import { Box, Typography } from "@mui/material";
 import ProdImg from "../ProductImage/ProductImage.tsx";
-// import BargainPrice from "../Bargain/Bargain";
 
 function ProductComp() {
   return (
-    <div>
-      <h3 className="first">Template</h3>
+    <Box sx={{ textAlign: "center", mb: 2 }}>
+      <Typography variant="h5" component="h2" color="primary" gutterBottom>
+        Grocery Basket Deal
+      </Typography>
       <ProdImg />
-    </div>
+    </Box>
   );
 }
 

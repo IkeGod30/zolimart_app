@@ -1,27 +1,21 @@
-import "./OfferCount.css";
-import { useState } from "react";
+import { Box, LinearProgress, Typography } from "@mui/material";
 
-export default function OfferCount({ count, status, totalCount, entity }) {
-  const TotalOfferCount = 4; //
-  //   const [isValid, setisValid] = useState(false);
+export default function OfferCount({ count, totalCount }) {
+  const percent = totalCount > 0 ? (count / totalCount) * 100 : 0;
 
-  //   function changeStatus() {
-  //     setisValid(false);
-  //   }
-
-  //   if (isValid) {
-  //     return <p onMouseOver={changeStatus}>It is Valid</p>;
-  //   }
-
-  //   return <h3 onClick={changeStatus}>Not Valid</h3>;
   return (
-    <div>
-      <h4 className="OfferCount-div">
-        Offer Count : {count} of {totalCount}
-      </h4>
-      {/* <h3>
-        {entity.first + " " + entity.second} {entity.length}
-      </h3> */}
-    </div>
+    <Box sx={{ mt: 1 }}>
+      <LinearProgress
+        variant="determinate"
+        value={percent}
+        sx={{ height: 8, borderRadius: 4 }}
+      />
+      <Typography
+        variant="caption"
+        sx={{ mt: 0.5, display: "block", textAlign: "center", color: "text.secondary" }}
+      >
+        Offers used: {count} of {totalCount}
+      </Typography>
+    </Box>
   );
 }

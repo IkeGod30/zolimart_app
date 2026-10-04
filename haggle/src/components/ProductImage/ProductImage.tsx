@@ -1,284 +1,238 @@
-import "./ProductImg.css";
-import { useState } from "react";
-import { useReducer } from "react"; // Use for Reducer function in place of useState
-// import Toastalert from "../Toast/Toast";
+import { useReducer, useState } from "react";
+import {
+  Card,
+  CardContent,
+  Typography,
+  TextField,
+  Button,
+  Stack,
+  Alert,
+  Box,
+  InputAdornment,
+} from "@mui/material";
 import OfferCount from "../OfferCount/OfferCount";
 import ProductImg from "../ProductImg/ProductImg";
-import NewProduct from "../CreateProduct/CreateProduct";
-import { Backdrop, CircularProgress } from "@mui/material";
 
-import { changeOfferi } from "../features/bargain/bargainSlice";
-// ...import { useSelector, useDispatch } from "react-redux";
+const ASKING_PRICE = 45;
+const MAX_OFFERS = 5;
 
-const ProdImg : React.FC = ()=> {
-  //..const Off = useSelector((state) => state.bargain.value);
-  //.. const dispatch = useDispatch();
-  // const [counterOff, setcounterOff] = useState(0);
-  // const [offersubmit, setoffersubmit] = useState(0);
-  const [UserOffer, setUserOffer] = useState(0);
-  const [counterOffer, setcounterOffer] = useState();
+type BargainStatus = "idle" | "countered" | "accepted" | "limit";
 
-  // const [disco, setdisco] = useState(discounts);
-  /////// const [Offercount, setOffercount] = useState(0); //////
+interface BargainState {
+  offerCount: number;
+  lastOffer: number | null;
+  counterOffer: number | null;
+  status: BargainStatus;
+  errorMsg: string | null;
+}
 
-  const [btnTitle, setbtnTitle] = useState(true);
+type BargainAction =
+  | { type: "SUBMIT_OFFER"; payload: number }
+  | { type: "ACCEPT_COUNTER" }
+  | { type: "RESTART" };
 
-  const [Offercount, dispatch] = useReducer(offerReducer, 0); // -- 1 -- //
+// The seller's discount off the asking price shrinks as the buyer's offer
+// gets closer to it, and the result is always clamped between the buyer's
+// offer and the asking price so the counter can never undercut the buyer.
+function getCounterOffer(offer: number, asking: number): number {
+  const ratio = offer / asking;
+  let discount: number;
+  if (ratio >= 0.9) discount = 0.02;
+  else if (ratio >= 0.7) discount = 0.05;
+  else if (ratio >= 0.5) discount = 0.1;
+  else if (ratio >= 0.3) discount = 0.2;
+  else discount = 0.3;
 
-  const TotalOfferCount : number = 5;
+  const rawCounter = asking * (1 - discount);
+  const counter = Math.min(asking, Math.max(rawCounter, offer));
+  return Math.round(counter * 100) / 100;
+}
 
-  function changeOffercount() {
-    // -- 2 -- //
-    dispatch({
-      type: "changedOffer",
-    });
-  }
+const initialState: BargainState = {
+  offerCount: 0,
+  lastOffer: null,
+  counterOffer: null,
+  status: "idle",
+  errorMsg: null,
+};
 
-  function offerReducer(Offercount, action) {
-    // -- 3 -- //
-    switch (action.type) {
-      case "changedOffer": {
-        return Offercount + 1;
+function bargainReducer(state: BargainState, action: BargainAction): BargainState {
+  switch (action.type) {
+    case "SUBMIT_OFFER": {
+      // Once the deal is done or the attempt limit is hit, further offers
+      // are no-ops instead of silently continuing to count.
+      if (state.status === "limit" || state.status === "accepted") return state;
+
+      const offer = action.payload;
+
+      if (Number.isNaN(offer) || offer <= 0) {
+        return { ...state, errorMsg: "Enter an offer above $0." };
       }
+      if (offer > ASKING_PRICE) {
+        return {
+          ...state,
+          errorMsg: `Your offer can't be above the asking price of $${ASKING_PRICE}.`,
+        };
+      }
+
+      // Only a valid, in-range offer counts as an attempt.
+      const offerCount = state.offerCount + 1;
+
+      if (offer === ASKING_PRICE) {
+        return {
+          ...state,
+          offerCount,
+          lastOffer: offer,
+          counterOffer: ASKING_PRICE,
+          status: "accepted",
+          errorMsg: null,
+        };
+      }
+
+      return {
+        ...state,
+        offerCount,
+        lastOffer: offer,
+        counterOffer: getCounterOffer(offer, ASKING_PRICE),
+        status: offerCount >= MAX_OFFERS ? "limit" : "countered",
+        errorMsg: null,
+      };
     }
+    case "ACCEPT_COUNTER":
+      return state.counterOffer == null
+        ? state
+        : { ...state, status: "accepted", lastOffer: state.counterOffer };
+    case "RESTART":
+      return initialState;
+    default:
+      return state;
+  }
+}
+
+const formatPrice = (value: number | null) => (value == null ? "—" : `$${value.toFixed(2)}`);
+
+const ProdImg: React.FC = () => {
+  const [state, dispatch] = useReducer(bargainReducer, initialState);
+  const [offerInput, setOfferInput] = useState("");
+  const { offerCount, lastOffer, counterOffer, status, errorMsg } = state;
+  const isLocked = status === "accepted" || status === "limit";
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    dispatch({ type: "SUBMIT_OFFER", payload: parseFloat(offerInput) });
+    setOfferInput("");
   }
 
-  // function changeOffercount() {
-  //   setOffercount(Offercount + 1);
-  // }
-
-  function handleBtnTitle() {
-    setbtnTitle(!btnTitle);
+  function handleAccept() {
+    dispatch({ type: "ACCEPT_COUNTER" });
   }
 
-  function changeUserOffer(e) {
-    // if (
-    //   e.key === "Enter" &&
-    //   e.target.value.trim() !== "" &&
-    //   typeof e.key == NaN
-    // ) {
-    setUserOffer(e.target.value);
-  }
-
-  function changeCounterOffer(offerPercent) {
-    // Check !!! //
-    setcounterOffer(offerPercent); // Set argument with state also
-    // setTimeout(() => {
-    //   setcounterOff(offerPercent);
-    // }, 5000);
-  }
-
-  function changeDisco(disc) {
-    // Use map to handle the array
-    // setdisco([...disco, { disc: OfferFive }]);
-  }
-  // function offerChange() {
-  //   setoffersubmit(submitOffer);
-  // }
-
-  const asking = 45; // Refactor in state
-  let Offer = UserOffer;
-
-  // Remove the five lines below
-  //.. const DiscountFive = (asking / 100) * 5; // 2.25 // asking * 0.05 //
-  //.. const DiscountTen = (asking / 100) * 10; // 4.5
-  //.. const DiscountTwenty = (asking / 100) * 20; // 9
-  //.. const DiscountThirty = (asking / 100) * 30; // 13.5 // Unused
-  //.. const DiscountForty = (asking / 100) * 40; // 18  //Unused
-
-  const OfferFive = asking * 0.95; // $42.75 // Use as template for rest //
-  const OfferTen = asking * 0.9; // $40.5
-  const OfferTwenty = asking * 0.8; // $36
-  const OfferThirty = asking * 0.7; // $31.5
-  const OfferForty = asking * 0.6; // $27
-
-  // const OfferTen = asking - DiscountTen; // 40.5
-  // const OfferTwenty = asking - DiscountTwenty; // 36
-  // const OfferThirty = asking - DiscountThirty; // 31.5 // Unused
-  //  const OfferForty = asking - DiscountForty; // 27  // Unused
-
-  function OfferPrice() {
-    // const Offer = 0;
-    // const LAST_PRICE = askingPrice * 0.15;
-    // let Offered_price = e.target.value;
-
-    //............................//
-
-    // switch (Offer) {
-    //   case (asking / 100) * 70: { // (asking * 0.70) //
-    //     changeCounterOffer(OfferFive);
-    //     changeOffercount();
-    //   }
-    //   case (asking / 100) * 80: {
-    //     changeCounterOffer(OfferTen);
-    //     changeOffercount();
-    //   }
-    //   case (asking / 100) * 60: {
-    //     changeCounterOffer(OfferTwenty);
-    //     changeOffercount();
-    //   }
-    //   case (asking / 100) * 90: {
-    //     changeCounterOffer(OfferThirty);
-    //     changeOffercount();
-    //   }
-    // }
-
-    // if (Offer < asking - DiscountFive && Offer < 15 && Offer !== asking) {
-    // = if (Offer < 45 - 2.25 AND Offer < 15 AND Offer is not 45)
-    if ((Offer <= asking * 0.3) && (Offer !== asking)) { // Enclose each condition in its own bracket
-      // setcounterOffer(OfferFive);
-      changeCounterOffer(OfferFive);
-      changeOffercount();
-    } else if ((Offer < asking * 0.4) && (Offer < 25) && (Offer !== asking)) {
-      // ... else if (Offer < asking - DiscountTen && Offer < 25 && Offer !== asking)
-      // setcounterOffer(OfferTen);
-      changeCounterOffer(OfferTen);
-      changeOffercount();
-
-      /// #### Used to delay the above code execution #####
-
-      // setTimeout(() => {
-      //   changeCounterOffer(OfferTen);
-      //   changeOffercount();
-      // }, 5000);
-
-      // alert("Congratulations! Your Offer has been accepted");
-    } else if (Offer < asking * 0.5 && Offer < 30 && Offer !== asking) {
-      // Check figure
-
-      changeCounterOffer(OfferTwenty);
-      changeOffercount();
-    } else if (Offer > (asking * 0.6) && Offer !== asking) {
-      changeCounterOffer(OfferThirty);
-      changeOffercount();
-    } else if (Offer > (asking * 0.7) && Offer !== asking) {
-      // Check returned value
-      changeCounterOffer(OfferForty);
-      changeOffercount();
-    }
-
-    // ###################################### The Loop Alternative ///
-    // for (Offer = 1; Offer < 15; Offer++) {
-    //   changeCounterOffer(100);
-    // }
-
-    // for (Offer = 15; Offer < 25; Offer++) {
-    //   changeCounterOffer(150);
-    // }
-    // ###################################### //
-
-    if (Offer == asking) {
-      alert("Your Offer matches the asking price.");
-      changeCounterOffer(asking);
-      changeOffercount();
-      // setOffercount(Offercount); ///////
-    } else if (Offer > asking) {
-      alert(
-        "Your offer is above the Asking Price. Please make an offer equal or below the Asking Price"
-      );
-
-      changeCounterOffer(asking);
-      changeOffercount();
-      // setOffercount(Offercount); /////////
-    }
-
-    if (Offer <= 0) {
-      // You could also use the While statement
-      alert("Offer cannot be zero or less than zero");
-      changeCounterOffer(null);
-      changeOffercount();
-      // setOffercount(Offercount); /////
-      setUserOffer(0);
-    }
-  }
-
-  if (Offercount > TotalOfferCount) {
-    // alert("You have reached the maximum number of offer");
-    return (
-      <div>
-        <h4 style={{ color: "red" }}>Limit Exceeded</h4>
-        <button className="btn btn-info" onClick={""}>
-          Restart Bargain
-        </button>
-      </div>
-    );
-    // setOffercount(OfferCount);
+  function handleRestart() {
+    dispatch({ type: "RESTART" });
+    setOfferInput("");
   }
 
   return (
-    <>
-      <div
-        className="card"
-        style={{
-          width: "23rem",
-          height: "510px",
-          margin: "0 auto",
-          borderRadius: "5px",
-          border: "solid gray 1px",
-        }}
-      >
-        <ProductImg />
+    <Card
+      component="form"
+      onSubmit={handleSubmit}
+      variant="outlined"
+      sx={{ width: "23rem", maxWidth: "100%", margin: "0 auto", borderRadius: 2 }}
+    >
+      <ProductImg />
+      <CardContent>
+        <Typography variant="h6" component="h3" gutterBottom sx={{ fontStyle: "italic" }}>
+          Basket of assorted items
+        </Typography>
 
-        {/* <img
-          width="100%"
-          src={basket}
-          height="40%"
-          style={{ margin: "0 auto" }}
-        /> */}
+        <Stack spacing={0.5} sx={{ mb: 2 }}>
+          <Typography>
+            <Box component="span" sx={{ color: "text.secondary", fontWeight: "bold" }}>
+              Asking price:
+            </Box>{" "}
+            <Box component="span" sx={{ fontWeight: "bold" }}>
+              {formatPrice(ASKING_PRICE)}
+            </Box>
+          </Typography>
+          <Typography>
+            <Box component="span" sx={{ color: "text.secondary", fontWeight: "bold" }}>
+              Your last offer:
+            </Box>{" "}
+            {formatPrice(lastOffer)}
+          </Typography>
+          <Typography>
+            <Box component="span" sx={{ color: "text.secondary", fontWeight: "bold" }}>
+              Counter offer:
+            </Box>{" "}
+            <Box component="span" sx={{ fontWeight: "bold", color: "success.main" }}>
+              {formatPrice(counterOffer)}
+            </Box>
+          </Typography>
+        </Stack>
 
-        {/* <img src="..." class="card-img-top" alt="..."> */}
-        <div className="card-body">
-          <h5 className="card-title">Basket of assorted items</h5>
-          <hr />
-          <div className="prices">
-            <p>
-              <span className="amountTxt">Asking Price :</span>{" "}
-              <span className="amount">${asking}</span>{" "}
-            </p>
-            <p>
-              <span className="amountTxt">Current User Offer :</span>{" "}
-              <span className="amount">${UserOffer}</span>
-            </p>
-            <p>
-              <span className="amountTxt">Current Counter Offer :</span>{" "}
-              <span className="amount">${counterOffer}</span>
-            </p>
-          </div>
+        {/* aria-live so screen reader users hear the result without a blocking alert() */}
+        <Box aria-live="polite">
+          {errorMsg && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {errorMsg}
+            </Alert>
+          )}
+          {status === "countered" && (
+            <Alert severity="info" sx={{ mb: 2 }}>
+              The seller counters at {formatPrice(counterOffer)}. Accept it or submit a new offer.
+            </Alert>
+          )}
+          {status === "accepted" && (
+            <Alert severity="success" sx={{ mb: 2 }}>
+              Deal! Final price {formatPrice(lastOffer)}.
+            </Alert>
+          )}
+          {status === "limit" && (
+            <Alert severity="warning" sx={{ mb: 2 }}>
+              You've used all {MAX_OFFERS} offers. Restart to try again.
+            </Alert>
+          )}
+        </Box>
 
-          {/* Refactor and make the below a component */}
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
+        <Stack direction="row" spacing={1} sx={{ mb: 2 }}>
+          <TextField
+            label="Your offer"
+            type="number"
+            size="small"
+            fullWidth
+            value={offerInput}
+            onChange={(e) => setOfferInput(e.target.value)}
+            disabled={isLocked}
+            inputProps={{ min: 1, step: "0.01" }}
+            InputProps={{
+              startAdornment: <InputAdornment position="start">$</InputAdornment>,
             }}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            disabled={isLocked || offerInput.trim() === ""}
           >
-            <button onClick={OfferPrice} className="btn btn-primary">
-              Make Offer
-            </button>
+            Submit
+          </Button>
+        </Stack>
 
-            {/* <CircularProgress variant="determinate" value={60} /> */}
+        {status === "countered" && (
+          <Button onClick={handleAccept} variant="outlined" fullWidth sx={{ mb: 2 }}>
+            Accept Counter Offer
+          </Button>
+        )}
 
-            {/* <button onClick={handleBtnTitle} className="btn btn-primary">
-              {btnTitle ? "Make Offer" : "Accept Offer"}
-            </button> */}
-            <input
-              onKeyUp={changeUserOffer}
-              type="text"
-              required
-              placeholder="Type your amount"
-              style={{ width: "150px", height: "35px" }}
-            />
+        {isLocked && (
+          <Button onClick={handleRestart} variant="outlined" fullWidth sx={{ mb: 2 }}>
+            {status === "accepted" ? "Start a New Bargain" : "Restart Bargain"}
+          </Button>
+        )}
 
-            {/* <button className="btn btn-primary">Checkout</button> */}
-          </div>
-          <hr />
-          <OfferCount count={Offercount} totalCount={TotalOfferCount} />
-          {/* <OfferCount count={changeOffercount} totalCount={TotalOfferCount} /> */}
-        </div>
-      </div>
-    </>
+        <OfferCount count={offerCount} totalCount={MAX_OFFERS} />
+      </CardContent>
+    </Card>
   );
-}
+};
 
 export default ProdImg;

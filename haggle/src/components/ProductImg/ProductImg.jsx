@@ -1,14 +1,18 @@
-import "./ProductImg.css";
+import { Box } from "@mui/material";
 import basket from "../assets/voucher.jpg";
 
 export default function ProductImg() {
   return (
-    <img
-      width="100%"
+    <Box
+      component="img"
       src={basket}
-      height="40%"
-      alt="A basket"
-      // style={{ margin: "0 auto" }}
+      alt="Basket of assorted grocery items"
+      sx={{
+        display: "block",
+        width: "100%",
+        aspectRatio: "16 / 9",
+        objectFit: "cover",
+      }}
     />
   );
 }
