@@ -1,9 +1,9 @@
-const MAX_SIDE = 640;
+// Each listing stores several photos in localStorage (~5 MB in total), so
+// photos are kept small: roughly 30-60 KB each.
+const MAX_SIDE = 560;
+const QUALITY = 0.75;
 
-/**
- * Reads an image file and returns a downscaled JPEG data URL, small enough
- * to keep in localStorage alongside the rest of the listings.
- */
+/** Reads an image file and returns a downscaled JPEG data URL. */
 export function imageFileToDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const url = URL.createObjectURL(file);
@@ -20,11 +20,11 @@ export function imageFileToDataUrl(file: File): Promise<string> {
         return;
       }
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      resolve(canvas.toDataURL("image/jpeg", 0.8));
+      resolve(canvas.toDataURL("image/jpeg", QUALITY));
     };
     img.onerror = () => {
       URL.revokeObjectURL(url);
-      reject(new Error("That file couldn't be read as an image."));
+      reject(new Error(`"${file.name}" couldn't be read as an image.`));
     };
     img.src = url;
   });

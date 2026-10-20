@@ -1,4 +1,4 @@
-import { CATEGORIES, type Category, type NewListing } from "../types";
+import { CATEGORIES, MAX_PHOTOS, MIN_PHOTOS, type Category, type NewListing } from "../types";
 
 /** Raw form values; prices are strings straight from the inputs. */
 export interface ListingFormValues {
@@ -6,7 +6,8 @@ export interface ListingFormValues {
   description: string;
   category: Category;
   sellerName: string;
-  imageUrl: string | null;
+  /** Photo URLs in display order; the first is the cover. */
+  photos: string[];
   askingPrice: string;
   minimumPrice: string;
 }
@@ -18,7 +19,7 @@ export const emptyListingForm: ListingFormValues = {
   description: "",
   category: CATEGORIES[0],
   sellerName: "",
-  imageUrl: null,
+  photos: [],
   askingPrice: "",
   minimumPrice: "",
 };
@@ -32,7 +33,8 @@ function parsePrice(raw: string): number | null {
 
 /**
  * Checks a listing form. Returns either field errors or the listing ready to
- * be saved; the seller must set both prices with minimum <= asking.
+ * be saved. The seller must set both prices with minimum <= asking, and add
+ * between MIN_PHOTOS and MAX_PHOTOS photos.
  */
 export function validateListing(
   values: ListingFormValues
@@ -62,6 +64,13 @@ export function validateListing(
     errors.minimumPrice = "Minimum price can't be above the asking price.";
   }
 
+  if (values.photos.length < MIN_PHOTOS) {
+    const missing = MIN_PHOTOS - values.photos.length;
+    errors.photos = `Add at least ${MIN_PHOTOS} photos (${missing} more needed).`;
+  } else if (values.photos.length > MAX_PHOTOS) {
+    errors.photos = `You can add up to ${MAX_PHOTOS} photos.`;
+  }
+
   if (Object.keys(errors).length > 0) return { errors };
 
   return {
@@ -70,7 +79,7 @@ export function validateListing(
       description: values.description.trim(),
       category: values.category,
       sellerName,
-      imageUrl: values.imageUrl,
+      photos: values.photos.map((url) => ({ url })),
       askingPrice: askingPrice!,
       minimumPrice: minimumPrice!,
     },

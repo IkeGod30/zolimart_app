@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { AppBar, Box, Container, Tab, Tabs, Toolbar, Typography } from "@mui/material";
+import { Alert, AppBar, Box, Container, Tab, Tabs, Toolbar, Typography } from "@mui/material";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import SellPage from "./pages/SellPage";
 import ShopPage from "./pages/ShopPage";
+import { useSaveFailed } from "./store/hooks";
 
 type View = "shop" | "sell";
 
@@ -11,6 +12,7 @@ const viewFromHash = (): View => (window.location.hash === "#sell" ? "sell" : "s
 
 const App = () => {
   const [view, setView] = useState<View>(viewFromHash);
+  const saveFailed = useSaveFailed();
 
   useEffect(() => {
     const onHashChange = () => setView(viewFromHash());
@@ -50,6 +52,12 @@ const App = () => {
         </Toolbar>
       </AppBar>
       <Container component="main" sx={{ py: 4 }}>
+        {saveFailed && (
+          <Alert severity="warning" sx={{ mb: 3 }}>
+            This browser's storage is full, so recent changes will be lost when you reload.
+            Remove some listings on the Sell tab to free up space.
+          </Alert>
+        )}
         {view === "shop" ? <ShopPage /> : <SellPage />}
       </Container>
     </Box>

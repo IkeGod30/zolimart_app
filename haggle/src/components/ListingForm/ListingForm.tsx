@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   Alert,
-  Box,
   Button,
   Card,
   CardContent,
@@ -11,9 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
 import { formatPrice } from "../../lib/format";
-import { imageFileToDataUrl } from "../../lib/image";
 import {
   emptyListingForm,
   validateListing,
@@ -23,6 +20,7 @@ import {
 import { listingAdded } from "../../store/marketSlice";
 import { useAppDispatch } from "../../store/hooks";
 import { CATEGORIES, type Category } from "../../types";
+import PhotoPicker from "../PhotoPicker/PhotoPicker";
 
 interface ListingFormProps {
   onListed: (title: string) => void;
@@ -32,7 +30,6 @@ export default function ListingForm({ onListed }: ListingFormProps) {
   const dispatch = useAppDispatch();
   const [values, setValues] = useState<ListingFormValues>(emptyListingForm);
   const [submitted, setSubmitted] = useState(false);
-  const [imageError, setImageError] = useState<string | null>(null);
 
   const result = validateListing(values);
   // Errors only show once the seller has tried to submit, then update live.
@@ -40,18 +37,6 @@ export default function ListingForm({ onListed }: ListingFormProps) {
 
   function update<K extends keyof ListingFormValues>(key: K, value: ListingFormValues[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
-  }
-
-  async function handleImage(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    e.target.value = "";
-    if (!file) return;
-    try {
-      update("imageUrl", await imageFileToDataUrl(file));
-      setImageError(null);
-    } catch (err) {
-      setImageError(err instanceof Error ? err.message : "Couldn't load that image.");
-    }
   }
 
   function handleSubmit(e: React.FormEvent) {
@@ -154,35 +139,13 @@ export default function ListingForm({ onListed }: ListingFormProps) {
             </Alert>
           )}
 
-          <Box>
-            {values.imageUrl ? (
-              <Stack direction="row" spacing={2} alignItems="center">
-                <Box
-                  component="img"
-                  src={values.imageUrl}
-                  alt="Selected item photo"
-                  sx={{ width: 96, height: 72, objectFit: "cover", borderRadius: 1 }}
-                />
-                <Button color="inherit" onClick={() => update("imageUrl", null)}>
-                  Remove photo
-                </Button>
-              </Stack>
-            ) : (
-              <Button
-                component="label"
-                variant="outlined"
-                startIcon={<PhotoCameraOutlinedIcon />}
-              >
-                Add photo
-                <input hidden type="file" accept="image/*" onChange={handleImage} />
-              </Button>
-            )}
-            {imageError && (
-              <Typography variant="body2" color="error" sx={{ mt: 1 }}>
-                {imageError}
-              </Typography>
-            )}
-          </Box>
+          <PhotoPicker
+            photos={values.photos}
+            onChange={(updatePhotos) =>
+              setValues((prev) => ({ ...prev, photos: updatePhotos(prev.photos) }))
+            }
+            error={errors.photos}
+          />
 
           <Button type="submit" variant="contained" size="large">
             List item

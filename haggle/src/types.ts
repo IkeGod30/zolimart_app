@@ -18,15 +18,24 @@ export interface ImageCredit {
   source: string;
 }
 
+/** Photos a seller must add to a new listing. */
+export const MIN_PHOTOS = 3;
+export const MAX_PHOTOS = 6;
+
+export interface ListingPhoto {
+  /** Image URL or downscaled data URL. */
+  url: string;
+  credit?: ImageCredit;
+}
+
 export interface Listing {
   id: string;
   title: string;
   description: string;
   category: Category;
   sellerName: string;
-  /** Image URL or downscaled data URL; null shows a placeholder. */
-  imageUrl: string | null;
-  imageCredit?: ImageCredit;
+  /** The first photo is the cover. Empty shows a placeholder. */
+  photos: ListingPhoto[];
   /** Price the seller opens at. Buyers never pay more than this. */
   askingPrice: number;
   /** Lowest price the seller will accept. Never shown to buyers. */

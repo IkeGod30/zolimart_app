@@ -263,8 +263,7 @@ const seeds: Seed[] = [
 /** Demo listings shown on first visit, newest first. */
 export const seedListings: Listing[] = seeds.map(({ image, credit, ...seed }, i) => ({
   ...seed,
-  imageUrl: `/images/${image}`,
-  ...(credit && { imageCredit: credit }),
+  photos: [{ url: `/images/${image}`, ...(credit && { credit }) }],
   createdAt: now - (i + 1) * (DAY / 4),
   soldPrice: null,
 }));

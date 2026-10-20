@@ -3,12 +3,15 @@ import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import type { Listing } from "../../types";
 
 interface ListingImageProps {
-  listing: Pick<Listing, "title" | "imageUrl">;
+  listing: Pick<Listing, "title" | "photos">;
   aspectRatio?: string;
 }
 
+/** The listing's cover photo, or a placeholder if it has none. */
 export default function ListingImage({ listing, aspectRatio = "4 / 3" }: ListingImageProps) {
-  if (!listing.imageUrl) {
+  const cover = listing.photos[0];
+
+  if (!cover) {
     return (
       <Box
         role="img"
@@ -29,7 +32,7 @@ export default function ListingImage({ listing, aspectRatio = "4 / 3" }: Listing
   return (
     <Box
       component="img"
-      src={listing.imageUrl}
+      src={cover.url}
       alt={listing.title}
       sx={{ display: "block", width: "100%", aspectRatio, objectFit: "cover" }}
     />
